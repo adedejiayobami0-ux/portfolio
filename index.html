@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayobami Adedeji — Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+/* ─── THEME TOKENS ─────────────────────────────── */
+:root {
+  --bg:        #FAFAF7;
+  --bg2:       #F2EFE7;
+  --bg3:       #E8E3D8;
+  --surface:   #FFFFFF;
+  --border:    rgba(30,24,14,0.10);
+  --border2:   rgba(30,24,14,0.18);
+  --ink:       #1A1714;
+  --ink2:      #5A5550;
+  --ink3:      #9A9590;
+  --accent:    #B8622A;
+  --accent-bg: #F5E8DC;
+  --accent-t:  #7A3A10;
+  --green:     #2D6A1F;
+  --green-bg:  #E4F3DF;
+  --green-t:   #1A4510;
+  --blue:      #1B5EA8;
+  --blue-bg:   #E0EDFB;
+  --blue-t:    #0D3A6E;
+  --red:       #B03030;
+  --red-bg:    #FBEAEA;
+  --red-t:     #7A1818;
+  --warn-bg:   #FEF3E2;
+  --warn-t:    #7A4A10;
+  --radius:    12px;
+  --radius-sm: 8px;
+}
+[data-theme="dark"] {
+  --bg:        #141210;
+  --bg2:       #1E1B18;
+  --bg3:       #272320;
+  --surface:   #1E1B18;
+  --border:    rgba(255,248,235,0.10);
+  --border2:   rgba(255,248,235,0.20);
+  --ink:       #F5F0E8;
+  --ink2:      #A8A09A;
+  --ink3:      #6A6460;
+  --accent:    #E07840;
+  --accent-bg: #3A2010;
+  --accent-t:  #F0A870;
+  --green:     #5AB040;
+  --green-bg:  #1A3010;
+  --green-t:   #90D070;
+  --blue:      #5090E0;
+  --blue-bg:   #0D2540;
+  --blue-t:    #90C0F0;
+  --red:       #E05050;
+  --red-bg:    #3A1010;
+  --red-t:     #F09090;
+  --warn-bg:   #3A2808;
+  --warn-t:    #F0C070;
+}
+
+/* ─── RESET & BASE ─────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  transition:background 0.3s,color 0.3s;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;}
+
+/* ─── LAYOUT ───────────────────────────────────── */
+.wrap{max-width:920px;margin:0 auto;padding:0 2rem;}
+
+/* ─── NAV ──────────────────────────────────────── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--bg);
+  border-bottom:0.5px solid var(--border);
+  transition:background 0.3s;
+}
+.nav-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 0;
+  max-width:920px;margin:0 auto;padding-left:2rem;padding-right:2rem;
+}
+.nav-logo{
+  font-family:'Lora',serif;font-size:16px;font-weight:500;
+  letter-spacing:-0.3px;color:var(--ink);
+}
+.nav-right{display:flex;align-items:center;gap:1.8rem;}
+.nav-links{display:flex;gap:1.5rem;list-style:none;}
+.nav-links a{
+  font-size:13px;color:var(--ink2);
+  transition:color 0.15s;
+}
+.nav-links a:hover{color:var(--ink);}
+.theme-toggle{
+  width:36px;height:20px;border-radius:10px;
+  background:var(--bg3);border:0.5px solid var(--border2);
+  cursor:pointer;position:relative;transition:background 0.3s;
+  flex-shrink:0;
+}
+.theme-toggle::after{
+  content:'';position:absolute;
+  top:3px;left:3px;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--ink2);
+  transition:transform 0.25s, background 0.3s;
+}
+[data-theme="dark"] .theme-toggle::after{transform:translateX(16px);}
+
+/* ─── HERO ─────────────────────────────────────── */
+.hero{
+  padding:5rem 0 3.5rem;
+  display:grid;grid-template-columns:1fr 110px;
+  gap:2rem;align-items:start;
+  border-bottom:0.5px solid var(--border);
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:500;letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--green);background:var(--green-bg);
+  padding:5px 12px;border-radius:20px;
+  margin-bottom:1.3rem;
+}
+.tag-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
+.hero h1{
+  font-family:'Lora',serif;
+  font-size:52px;font-weight:500;
+  line-height:1.1;letter-spacing:-2px;
+  margin-bottom:1.3rem;color:var(--ink);
+}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--accent);}
+.hero-bio{
+  font-size:15.5px;font-weight:300;line-height:1.85;
+  color:var(--ink2);max-width:540px;margin-bottom:1.8rem;
+}
+.hero-bio strong{font-weight:500;color:var(--ink);}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-fill{
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;font-weight:500;
+  padding:11px 24px;border-radius:28px;
+  border:none;background:var(--ink);color:var(--bg);
+  cursor:pointer;transition:opacity 0.15s;
+}
+.btn-fill:hover{opacity:0.78;}
+.btn-ghost{
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;font-weight:400;
+  padding:11px 24px;border-radius:28px;
+  border:0.5px solid var(--border2);background:transparent;
+  color:var(--ink);cursor:pointer;transition:background 0.15s;
+}
+.btn-ghost:hover{background:var(--bg2);}
+.avatar{
+  width:104px;height:104px;border-radius:50%;
+  background:var(--bg3);border:0.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Lora',serif;font-size:30px;font-weight:500;
+  color:var(--ink2);flex-shrink:0;margin-top:0.5rem;
+}
+
+/* ─── PEDIGREE BAR ─────────────────────────────── */
+.pedigree{
+  padding:1.8rem 0;
+  border-bottom:0.5px solid var(--border);
+  display:flex;align-items:center;gap:0;
+  overflow:hidden;
+}
+.pedigree-label{
+  font-size:10px;font-weight:500;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--ink3);
+  white-space:nowrap;margin-right:1.5rem;flex-shrink:0;
+}
+.company-list{
+  display:flex;align-items:center;gap:0;flex-wrap:nowrap;
+  overflow:hidden;
+}
+.company-badge{
+  font-size:12px;font-weight:500;color:var(--ink2);
+  padding:5px 14px;border-radius:20px;
+  border:0.5px solid var(--border);
+  background:var(--surface);
+  white-space:nowrap;margin-right:8px;
+  transition:color 0.15s,border-color 0.15s;
+}
+.company-badge:hover{color:var(--ink);border-color:var(--border2);}
+.company-sep{color:var(--ink3);margin-right:8px;font-size:10px;}
+
+/* ─── STATS ────────────────────────────────────── */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;border:0.5px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+  margin:2.5rem 0;background:var(--border);
+}
+.stat{background:var(--surface);padding:1.2rem 1rem;text-align:center;}
+.stat-n{
+  font-family:'Lora',serif;font-size:26px;font-weight:500;
+  display:block;margin-bottom:4px;color:var(--ink);line-height:1;
+}
+.stat-l{font-size:10px;color:var(--ink3);letter-spacing:0.07em;text-transform:uppercase;}
+
+/* ─── SECTION ──────────────────────────────────── */
+.section{padding:3rem 0;border-bottom:0.5px solid var(--border);}
+.section:last-child{border-bottom:none;}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem;}
+.sec-title{font-family:'Lora',serif;font-size:24px;font-weight:500;letter-spacing:-0.5px;}
+.sec-note{font-size:12px;color:var(--ink3);}
+
+/* ─── PROJECT CARDS ────────────────────────────── */
+.proj-stack{display:flex;flex-direction:column;gap:18px;}
+.proj-card{
+  background:var(--surface);
+  border:0.5px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.8rem;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2rem;align-items:start;
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+.proj-card:hover{
+  border-color:var(--border2);
+  box-shadow:0 4px 24px rgba(0,0,0,0.05);
+}
+[data-theme="dark"] .proj-card:hover{
+  box-shadow:0 4px 24px rgba(0,0,0,0.3);
+}
+.proj-type{
+  font-size:10px;font-weight:500;letter-spacing:0.1em;
+  text-transform:uppercase;padding:3px 10px;
+  border-radius:10px;display:inline-block;margin-bottom:0.9rem;
+}
+.t-pm{color:var(--blue-t);background:var(--blue-bg);}
+.t-fintech{color:var(--red-t);background:var(--red-bg);}
+.t-consumer{color:var(--green-t);background:var(--green-bg);}
+.proj-name{
+  font-family:'Lora',serif;font-size:22px;font-weight:500;
+  line-height:1.2;margin-bottom:5px;letter-spacing:-0.4px;
+}
+.proj-tagline{
+  font-size:13px;color:var(--ink2);font-style:italic;
+  margin-bottom:1rem;
+}
+.proj-desc{
+  font-size:13.5px;font-weight:300;line-height:1.75;
+  color:var(--ink2);margin-bottom:1.1rem;
+}
+.proj-desc strong{font-weight:500;color:var(--ink);}
+.proj-metrics{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.1rem;}
+.metric{
+  background:var(--bg2);border-radius:var(--radius-sm);
+  padding:9px 14px;text-align:center;min-width:72px;
+}
+.metric-n{
+  font-family:'Lora',serif;font-size:20px;font-weight:500;
+  display:block;line-height:1.1;color:var(--ink);
+}
+.metric-l{font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:0.05em;}
+.proj-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.1rem;}
+.tag{
+  font-size:11px;color:var(--ink2);
+  background:var(--bg2);
+  border:0.5px solid var(--border);
+  padding:3px 10px;border-radius:10px;
+}
+.proj-link{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:12px;font-weight:500;
+  color:var(--blue);border:0.5px solid var(--blue);
+  padding:7px 16px;border-radius:20px;
+  transition:background 0.15s;
+}
+.proj-link:hover{background:var(--blue-bg);}
+
+/* project visuals */
+.proj-visual{
+  background:var(--bg2);border-radius:var(--radius-sm);
+  border:0.5px solid var(--border);
+  padding:1.1rem;min-height:220px;
+}
+.vis-head{
+  font-size:10px;font-weight:500;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--ink3);margin-bottom:10px;
+}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.bar-lbl{font-size:10px;color:var(--ink3);width:58px;text-align:right;flex-shrink:0;}
+.bar-track{flex:1;height:5px;background:var(--bg3);border-radius:3px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:3px;}
+.bar-pct{font-size:10px;color:var(--ink3);width:28px;}
+.kanban{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;}
+.k-col{background:var(--surface);border-radius:var(--radius-sm);padding:7px;border:0.5px solid var(--border);}
+.k-col-h{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);margin-bottom:5px;}
+.k-item{background:var(--bg2);border-radius:5px;padding:5px 7px;font-size:10px;color:var(--ink);margin-bottom:4px;line-height:1.4;}
+.shield-item{
+  display:flex;align-items:center;gap:8px;
+  background:var(--surface);border:0.5px solid var(--border);
+  border-radius:var(--radius-sm);padding:7px 9px;margin-bottom:6px;
+}
+.sh-icon{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
+.sh-safe{background:var(--green-bg);}
+.sh-warn{background:var(--warn-bg);}
+.sh-risk{background:var(--red-bg);}
+.sh-main{font-size:10px;font-weight:500;color:var(--ink);}
+.sh-sub{font-size:9px;color:var(--ink3);}
+.sh-badge{margin-left:auto;font-size:9px;font-weight:500;padding:2px 7px;border-radius:8px;white-space:nowrap;}
+.b-safe{color:var(--green-t);background:var(--green-bg);}
+.b-warn{color:var(--warn-t);background:var(--warn-bg);}
+.b-risk{color:var(--red-t);background:var(--red-bg);}
+.ten-item{
+  background:var(--surface);border:0.5px solid var(--border);
+  border-radius:var(--radius-sm);padding:8px 10px;margin-bottom:6px;
+}
+.ten-type{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:0.07em;color:var(--blue);}
+.ten-title{font-size:11px;font-weight:500;color:var(--ink);margin:2px 0;}
+.ten-meta{font-size:9px;color:var(--ink3);}
+.waitlist-bar{
+  margin-top:10px;background:var(--surface);
+  border:0.5px solid var(--border);border-radius:var(--radius-sm);
+  padding:8px 10px;display:flex;align-items:center;justify-content:space-between;
+}
+.wl-txt{font-size:10px;color:var(--ink3);}
+.wl-badge{font-size:10px;font-weight:500;color:var(--green);}
+
+/* ─── EXPERIENCE ───────────────────────────────── */
+.exp-list{display:flex;flex-direction:column;gap:0;}
+.exp-item{
+  padding:1.5rem 0;
+  border-bottom:0.5px solid var(--border);
+  display:grid;grid-template-columns:1fr auto;
+  gap:1rem;
+}
+.exp-item:last-child{border-bottom:none;}
+.exp-company{
+  font-size:11px;font-weight:500;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:3px;
+}
+.exp-role{
+  font-family:'Lora',serif;font-size:17px;font-weight:500;
+  letter-spacing:-0.2px;margin-bottom:6px;color:var(--ink);
+}
+.exp-desc{font-size:13px;font-weight:300;line-height:1.7;color:var(--ink2);}
+.exp-desc strong{font-weight:500;color:var(--ink);}
+.exp-date{
+  font-size:11px;color:var(--ink3);white-space:nowrap;
+  text-align:right;padding-top:2px;
+}
+.exp-award{
+  display:inline-flex;align-items:center;gap:5px;
+  background:var(--warn-bg);color:var(--warn-t);
+  font-size:10px;font-weight:500;
+  padding:3px 9px;border-radius:10px;margin-top:8px;
+}
+
+/* ─── SKILLS ───────────────────────────────────── */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.skill-group{background:var(--bg2);border-radius:var(--radius);padding:1.1rem;}
+.sg-title{
+  font-size:10px;font-weight:500;letter-spacing:0.09em;
+  text-transform:uppercase;color:var(--ink3);margin-bottom:0.75rem;
+}
+.skill-pill{
+  display:inline-block;font-size:11px;color:var(--ink);
+  background:var(--surface);border:0.5px solid var(--border);
+  padding:3px 10px;border-radius:10px;margin:2px 2px 0 0;
+}
+
+/* ─── CONTACT ──────────────────────────────────── */
+.contact-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.2rem;}
+.c-card{
+  background:var(--bg2);border:0.5px solid var(--border);
+  border-radius:var(--radius);padding:1rem 1.2rem;
+  display:flex;align-items:center;gap:10px;
+  transition:background 0.15s;
+}
+.c-card:hover{background:var(--surface);}
+.c-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:var(--surface);border:0.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.c-label{font-size:13px;font-weight:500;color:var(--ink);}
+.c-sub{font-size:11px;color:var(--ink3);}
+.resume-band{
+  background:var(--bg2);border-radius:var(--radius);
+  padding:1.5rem;display:flex;
+  justify-content:space-between;align-items:center;gap:1rem;
+  border:0.5px solid var(--border);
+}
+.rb-text h3{font-family:'Lora',serif;font-size:17px;font-weight:500;margin-bottom:4px;}
+.rb-text p{font-size:13px;color:var(--ink2);font-weight:300;}
+.pub-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  background:var(--accent-bg);color:var(--accent-t);
+  font-size:10px;font-weight:500;
+  padding:4px 10px;border-radius:10px;margin-top:6px;
+}
+
+/* ─── FOOTER ───────────────────────────────────── */
+footer{
+  padding:2rem 0;text-align:center;
+  font-size:12px;color:var(--ink3);
+  border-top:0.5px solid var(--border);
+}
+
+/* ─── ANIMATIONS ───────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+.hero,.pedigree,.stats,.section{animation:fadeUp 0.55s ease both;}
+.section:nth-child(2){animation-delay:0.05s;}
+.section:nth-child(3){animation-delay:0.10s;}
+.section:nth-child(4){animation-delay:0.15s;}
+
+/* ─── RESPONSIVE ───────────────────────────────── */
+@media(max-width:700px){
+  .hero{grid-template-columns:1fr;}.avatar{display:none;}
+  .hero h1{font-size:38px;}
+  .proj-card{grid-template-columns:1fr;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .skills-grid{grid-template-columns:1fr 1fr;}
+  .exp-item{grid-template-columns:1fr;}
+  .exp-date{text-align:left;}
+  .pedigree{flex-wrap:wrap;}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.2rem;}
+  .skills-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Ayobami Adedeji</span>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeBtn" aria-label="Toggle dark mode"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-tag"><span class="tag-dot"></span>Open to Senior PM opportunities</div>
+    <h1>I don't just build.<br>I think of the<br><em>customer first.</em></h1>
+    <p class="hero-bio">
+      I'm a <strong>Product Manager with 7+ years</strong> across AWS, Apple, Google, and Bank of America building tools that reduce fraud, accelerate launches, and make complex systems feel simple. My process always starts with research: understanding the real job users need done before writing a single line of spec. I bring <strong>technical depth, design empathy, and cross-functional leadership</strong> to every product I touch from AI-powered fraud detection platforms for small businesses to consumer apps already growing a pre-launch waitlist. I build for outcomes. I design for people.
+    </p>
+    <div class="hero-ctas">
+      <a href="#work"><button class="btn-fill">View my work</button></a>
+      <a href="#contact"><button class="btn-ghost">Get in touch</button></a>
+    </div>
+  </div>
+  <div class="avatar">AA</div>
+</section>
+
+<!-- PEDIGREE BAR -->
+<div class="pedigree">
+  <span class="pedigree-label">Experience at</span>
+  <div class="company-list">
+    <span class="company-badge">Amazon Web Services</span>
+    <span class="company-badge">Bank of America</span>
+    <span class="company-badge">Google</span>
+    <span class="company-badge">Apple</span>
+    <span class="company-badge">Northeastern University</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-n">7+</span><span class="stat-l">Years PM</span></div>
+  <div class="stat"><span class="stat-n">60%</span><span class="stat-l">Time saved at AWS</span></div>
+  <div class="stat"><span class="stat-n">247</span><span class="stat-l">Waitlist signups</span></div>
+  <div class="stat"><span class="stat-n">2×</span><span class="stat-l">AWSome Awards</span></div>
+</div>
+
+<!-- PROJECTS -->
+<section class="section" id="work">
+  <div class="sec-head">
+    <span class="sec-title">Case studies</span>
+    <span class="sec-note">3 live products</span>
+  </div>
+  <div class="proj-stack">
+
+    <!-- LaunchHub -->
+    <div class="proj-card">
+      <div class="proj-body">
+        <span class="proj-type t-pm">Product Tool</span>
+        <p class="proj-name">LaunchHub — Launch Program Manager</p>
+        <p class="proj-tagline">Born out of a real gap I saw at AWS</p>
+        <p class="proj-desc">
+          While managing AWS cloud product launches, I noticed launch performance data was fragmented across disconnected systems. I didn't write a ticket — I <strong>designed, built, and shipped</strong> the solution myself. LaunchHub consolidates real-time task tracking, cross-functional team coordination, Workfront integration, and automation rules into a single dashboard — with Board, List, Table, and Calendar views.
+          <br><br>
+          The result at AWS: <strong>60%+ reduction in weekly status report compilation time</strong> and the elimination of manual tracking errors that had previously caused missed escalation windows.
+        </p>
+        <div class="proj-metrics">
+          <div class="metric"><span class="metric-n">60%</span><span class="metric-l">Time saved</span></div>
+          <div class="metric"><span class="metric-n">94%</span><span class="metric-l">On-time rate</span></div>
+          <div class="metric"><span class="metric-n">4</span><span class="metric-l">Views built</span></div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">Roadmapping</span><span class="tag">Cross-functional</span>
+          <span class="tag">Workfront</span><span class="tag">Automation</span>
+          <span class="tag">GTM strategy</span>
+        </div>
+        <a href="https://adedejiayobami0-ux.github.io/ticket-Tool/launch-manager.html" target="_blank" class="proj-link">View live ↗</a>
+      </div>
+      <div class="proj-visual">
+        <p class="vis-head">Task progress by type</p>
+        <div class="bar-row"><span class="bar-lbl">Website</span><div class="bar-track"><div class="bar-fill" style="width:88%;background:var(--blue);"></div></div><span class="bar-pct">88%</span></div>
+        <div class="bar-row"><span class="bar-lbl">News Blog</span><div class="bar-track"><div class="bar-fill" style="width:83%;background:var(--green);"></div></div><span class="bar-pct">83%</span></div>
+        <div class="bar-row"><span class="bar-lbl">Social</span><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--accent);"></div></div><span class="bar-pct">80%</span></div>
+        <div class="bar-row"><span class="bar-lbl">Video</span><div class="bar-track"><div class="bar-fill" style="width:38%;background:var(--red);"></div></div><span class="bar-pct">38%</span></div>
+        <div class="kanban">
+          <div class="k-col"><p class="k-col-h">To do</p><div class="k-item">Feature blog</div><div class="k-item">Tutorial series</div><div class="k-item">Pricing page</div></div>
+          <div class="k-col"><p class="k-col-h">In progress</p><div class="k-item">Launch blog</div><div class="k-item">Social assets</div><div class="k-item">Demo video</div></div>
+          <div class="k-col"><p class="k-col-h">Done</p><div class="k-item">Content calendar</div><div class="k-item">Testimonials</div><div class="k-item">Teaser trailer</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FraudShield -->
+    <div class="proj-card">
+      <div class="proj-body">
+        <span class="proj-type t-fintech">Fintech · AI</span>
+        <p class="proj-name">FraudShield SMB</p>
+        <p class="proj-tagline">Enterprise fraud detection, built for Main Street</p>
+        <p class="proj-desc">
+          After leading fraud & authentication delivery at Bank of America, I saw a critical gap: SMBs face the same fraud threats as enterprises but lack accessible tooling. I independently <strong>researched, coded, and deployed</strong> a cloud-native AI fraud detection platform — personally configuring the full AWS stack (SageMaker, Lambda, Kinesis, API Gateway, DynamoDB, SNS).
+          <br><br>
+          Validated against 287 synthetic SMB transactions: <strong>87.5% fraud detection rate, 94ms ML scoring latency</strong>. Published 2 peer-reviewed articles in IJRISS (2024).
+        </p>
+        <div class="proj-metrics">
+          <div class="metric"><span class="metric-n">87.5%</span><span class="metric-l">Detection</span></div>
+          <div class="metric"><span class="metric-n">94ms</span><span class="metric-l">Latency</span></div>
+          <div class="metric"><span class="metric-n">2</span><span class="metric-l">Papers published</span></div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">AI/ML</span><span class="tag">AWS SageMaker</span>
+          <span class="tag">Fintech</span><span class="tag">Risk UX</span>
+          <span class="tag">SMB</span><span class="tag">Research</span>
+        </div>
+        <div class="pub-badge">📄 IJRISS Peer-Reviewed · 2024</div><br><br>
+        <a href="https://adedejiayobami0-ux.github.io/fraudshieldsmb/" target="_blank" class="proj-link">View live ↗</a>
+      </div>
+      <div class="proj-visual">
+        <p class="vis-head">Transaction risk monitor</p>
+        <div class="shield-item"><div class="sh-icon sh-safe">✓</div><div><p class="sh-main">Online payment · $240</p><p class="sh-sub">Stripe · returning customer</p></div><span class="sh-badge b-safe">Safe</span></div>
+        <div class="shield-item"><div class="sh-icon sh-warn">!</div><div><p class="sh-main">Card payment · $1,890</p><p class="sh-sub">New location · unusual time</p></div><span class="sh-badge b-warn">Review</span></div>
+        <div class="shield-item"><div class="sh-icon sh-risk">✕</div><div><p class="sh-main">Wire transfer · $4,500</p><p class="sh-sub">Flagged IP · velocity spike</p></div><span class="sh-badge b-risk">High risk</span></div>
+        <div style="margin-top:10px;background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:9px 11px;">
+          <p style="font-size:10px;font-weight:500;color:var(--ink);margin-bottom:3px;">AI insight</p>
+          <p style="font-size:10px;color:var(--ink3);line-height:1.55;">Wire transfer pattern matches known fraud ring. Recommend hold pending manual review. Confidence: 94.2%</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ten. -->
+    <div class="proj-card">
+      <div class="proj-body">
+        <span class="proj-type t-consumer">Consumer · Media</span>
+        <p class="proj-name">Ten. — Stories for busy people</p>
+        <p class="proj-tagline">One story. One lesson. Ten minutes.</p>
+        <p class="proj-desc">
+          I identified an underserved moment: the idle 10 minutes on a commute, at lunch, before bed. Ten. delivers complete short stories and ideas as text and <strong>auto-generated audio</strong> — removing the "too long, didn't read" barrier entirely. A creator-first model lets writers keep 85% of revenue.
+          <br><br>
+          The job-to-be-done wasn't "read more" — it was <strong>"feel like I used my time well."</strong> That insight shaped every product decision, from the read/listen toggle to the "one piece, done" UX philosophy. <strong>247 people on the waitlist before launch.</strong>
+        </p>
+        <div class="proj-metrics">
+          <div class="metric"><span class="metric-n">247</span><span class="metric-l">Waitlist</span></div>
+          <div class="metric"><span class="metric-n">85%</span><span class="metric-l">Creator cut</span></div>
+          <div class="metric"><span class="metric-n">&lt;10m</span><span class="metric-l">Per piece</span></div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">Consumer product</span><span class="tag">0→1</span>
+          <span class="tag">Jobs-to-be-done</span><span class="tag">Audio UX</span>
+          <span class="tag">Creator economy</span><span class="tag">Monetisation</span>
+        </div>
+        <a href="https://adedejiayobami0-ux.github.io/tenapp/" target="_blank" class="proj-link">View live ↗</a>
+      </div>
+      <div class="proj-visual">
+        <p class="vis-head">Daily picks feed</p>
+        <div class="ten-item"><p class="ten-type">Story</p><p class="ten-title">The Night I Left Lagos</p><p class="ten-meta">by Chidera Okafor · 📖 9m · 🎧 7m</p></div>
+        <div class="ten-item"><p class="ten-type">Learn</p><p class="ten-title">Why You Procrastinate</p><p class="ten-meta">by Dr. Amara Osei · 📖 7m · 🎧 6m</p></div>
+        <div class="ten-item"><p class="ten-type">Story</p><p class="ten-title">I Quit My Tech Job at 30</p><p class="ten-meta">by Sarah Chen · 📖 8m · 🎧 7m</p></div>
+        <div class="waitlist-bar">
+          <span class="wl-txt">247 people on the waitlist</span>
+          <span class="wl-badge">Launching soon ●</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="sec-head">
+    <span class="sec-title">Experience</span>
+    <span class="sec-note">7+ years</span>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div>
+        <p class="exp-company">Amazon Web Services</p>
+        <p class="exp-role">Launch Program Manager II</p>
+        <p class="exp-desc">Managed the internal launch lifecycle of AWS cloud products and services, coordinating cross-functional teams across engineering, product, legal, and operations. <strong>Identified a critical portfolio visibility gap</strong> and independently designed, built, and deployed an internal program management tool — achieving a <strong>60%+ reduction in weekly status report compilation time</strong> and eliminating manual tracking errors causing missed escalation windows.</p>
+        <span class="exp-award">⭐ AWSome Award × 2 — Peculiar Points (David & Anuj Jauhari)</span>
+      </div>
+      <div class="exp-date">06/2024 – Present<br>Seattle, WA</div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <p class="exp-company">Bank of America</p>
+        <p class="exp-role">IT Program Manager — Fraud & Authentication Delivery Lead</p>
+        <p class="exp-desc">Led technology program delivery for Bank of America's Fraud and Authentication team. Introduced an <strong>agile-hybrid governance model</strong> reducing time-to-decision by 30%. Built deep domain knowledge of enterprise fraud detection systems — transaction monitoring, fraud signal typologies, alert triage, escalation protocols — that became the foundation for FraudShield SMB.</p>
+      </div>
+      <div class="exp-date">05/2023 – 05/2024<br>Seattle, WA</div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <p class="exp-company">Google Maps</p>
+        <p class="exp-role">Communication Program Manager — Compliance</p>
+        <p class="exp-desc">Streamlined cross-functional operations across global legal, privacy, and product teams, achieving a <strong>25% improvement in project delivery speed</strong> within the first quarter. Established comprehensive policies for measuring product launch success.</p>
+      </div>
+      <div class="exp-date">08/2022 – 04/2023<br>Seattle, WA</div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <p class="exp-company">Apple Inc.</p>
+        <p class="exp-role">Marcom R&D Print & Package — Product Manager (Internship)</p>
+        <p class="exp-desc">Applied analytical methodologies to complex R&D problems across print and packaging product development. <strong>Improved yield management efficiency by 30%</strong> within 6 months through optimised resource allocation and data science methodologies.</p>
+      </div>
+      <div class="exp-date">07/2021 – 07/2022<br>Cupertino, CA</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="sec-head"><span class="sec-title">Skills & tools</span></div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <p class="sg-title">Product craft</p>
+      <span class="skill-pill">Product strategy</span>
+      <span class="skill-pill">Roadmapping</span>
+      <span class="skill-pill">PRD writing</span>
+      <span class="skill-pill">OKRs</span>
+      <span class="skill-pill">Go-to-market</span>
+      <span class="skill-pill">Feature prioritisation</span>
+      <span class="skill-pill">Jobs-to-be-done</span>
+    </div>
+    <div class="skill-group">
+      <p class="sg-title">Research & design</p>
+      <span class="skill-pill">User research</span>
+      <span class="skill-pill">UX design</span>
+      <span class="skill-pill">Figma</span>
+      <span class="skill-pill">Usability testing</span>
+      <span class="skill-pill">Prototyping</span>
+      <span class="skill-pill">A/B testing</span>
+      <span class="skill-pill">Graphic design</span>
+    </div>
+    <div class="skill-group">
+      <p class="sg-title">Technical & delivery</p>
+      <span class="skill-pill">AWS SageMaker</span>
+      <span class="skill-pill">Lambda / Kinesis</span>
+      <span class="skill-pill">Agile / Scrum</span>
+      <span class="skill-pill">Workfront</span>
+      <span class="skill-pill">Jira</span>
+      <span class="skill-pill">Fraud detection</span>
+      <span class="skill-pill">ML deployment</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="sec-head"><span class="sec-title">Let's connect</span></div>
+  <div class="contact-row">
+    <a href="mailto:adedejiayobami0@gmail.com" class="c-card">
+      <div class="c-icon">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1" fill="none"/><path d="M1 4.5l7 5 7-5" stroke="currentColor" stroke-width="1"/></svg>
+      </div>
+      <div><p class="c-label">Email</p><p class="c-sub">adedejiayobami0@gmail.com</p></div>
+    </a>
+    <a href="https://linkedin.com/in/ayobami-adedeji-262592176" target="_blank" class="c-card">
+      <div class="c-icon">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" fill="none" stroke="currentColor"/><path d="M4 6.5v5M4 4v.5M6.5 11.5V8.75A2.25 2.25 0 019 6.5a2.5 2.5 0 012.5 2.5v2.5M6.5 6.5v5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+      </div>
+      <div><p class="c-label">LinkedIn</p><p class="c-sub">ayobami-adedeji-262592176</p></div>
+    </a>
+    <a href="https://github.com/adedejiayobami0-ux" target="_blank" class="c-card">
+      <div class="c-icon">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.34c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.88-1.17-.88-1.17-.72-.49.06-.48.06-.48.8.06 1.22.82 1.22.82.71 1.22 1.87.87 2.32.66.07-.51.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.68 7.68 0 018 3.92c.68 0 1.36.09 2 .26 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.19c0 .21.15.46.55.38C13.71 14.53 16 11.54 16 8c0-4.42-3.58-8-8-8z" fill="currentColor"/></svg>
+      </div>
+      <div><p class="c-label">GitHub</p><p class="c-sub">adedejiayobami0-ux</p></div>
+    </a>
+    <a href="tel:+15092172364" class="c-card">
+      <div class="c-icon">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 3a1 1 0 011-1h2.5a1 1 0 01.97.757l.7 2.8a1 1 0 01-.292.99l-1.06.97a9.014 9.014 0 004.56 4.56l.97-1.06a1 1 0 01.99-.292l2.8.7A1 1 0 0114 12.5V15a1 1 0 01-1 1C6.373 16 0 9.627 0 3a1 1 0 011-1h1z" stroke="currentColor" fill="none" stroke-width="1"/></svg>
+      </div>
+      <div><p class="c-label">Phone</p><p class="c-sub">+1 509-217-2364</p></div>
+    </a>
+  </div>
+  <div class="resume-band">
+    <div class="rb-text">
+      <h3>Resume / CV</h3>
+      <p>7+ years across AWS, Apple, Google & Bank of America — full details on request.</p>
+    </div>
+    <a href="mailto:adedejiayobami0@gmail.com?subject=Resume Request — Ayobami Adedeji"><button class="btn-fill">Request resume ↗</button></a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Ayobami Adedeji · Product Manager · Seattle, WA · <a href="mailto:adedejiayobami0@gmail.com" style="color:var(--accent);">adedejiayobami0@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('themeBtn');
+  const html = document.documentElement;
+  const stored = localStorage.getItem('theme');
+  if(stored) html.setAttribute('data-theme', stored);
+  btn.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+</script>
+</body>
+</html>
