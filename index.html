@@ -5,605 +5,939 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ayobami Adedeji — Product Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cabinet+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-/* ─── THEME TOKENS ─────────────────────────────── */
+/* ── THEME ───────────────────────────────────────────── */
 :root {
-  --bg:        #FAFAF7;
-  --bg2:       #F2EFE7;
-  --bg3:       #E8E3D8;
-  --surface:   #FFFFFF;
-  --border:    rgba(30,24,14,0.10);
-  --border2:   rgba(30,24,14,0.18);
-  --ink:       #1A1714;
-  --ink2:      #5A5550;
-  --ink3:      #9A9590;
-  --accent:    #B8622A;
-  --accent-bg: #F5E8DC;
-  --accent-t:  #7A3A10;
-  --green:     #2D6A1F;
-  --green-bg:  #E4F3DF;
-  --green-t:   #1A4510;
-  --blue:      #1B5EA8;
-  --blue-bg:   #E0EDFB;
-  --blue-t:    #0D3A6E;
-  --red:       #B03030;
-  --red-bg:    #FBEAEA;
-  --red-t:     #7A1818;
-  --warn-bg:   #FEF3E2;
-  --warn-t:    #7A4A10;
-  --radius:    12px;
-  --radius-sm: 8px;
+  --bg:       #F7F4EE;
+  --bg2:      #EDEAE0;
+  --bg3:      #E0DDD3;
+  --ink:      #18160F;
+  --ink2:     #5C5850;
+  --ink3:     #9C9890;
+  --surface:  #FFFFFF;
+  --gold:     #C8882A;
+  --gold-bg:  #FDF3E3;
+  --gold-t:   #7A4E0A;
+  --teal:     #1A6B6B;
+  --teal-bg:  #E0F2F2;
+  --teal-t:   #0A3F3F;
+  --rose:     #B04060;
+  --rose-bg:  #FCE8EE;
+  --rose-t:   #6A1830;
+  --border:   rgba(24,22,15,0.09);
+  --border2:  rgba(24,22,15,0.18);
+  --r:        14px;
+  --r-sm:     8px;
+  --progress: 0%;
 }
 [data-theme="dark"] {
-  --bg:        #141210;
-  --bg2:       #1E1B18;
-  --bg3:       #272320;
-  --surface:   #1E1B18;
-  --border:    rgba(255,248,235,0.10);
-  --border2:   rgba(255,248,235,0.20);
-  --ink:       #F5F0E8;
-  --ink2:      #A8A09A;
-  --ink3:      #6A6460;
-  --accent:    #E07840;
-  --accent-bg: #3A2010;
-  --accent-t:  #F0A870;
-  --green:     #5AB040;
-  --green-bg:  #1A3010;
-  --green-t:   #90D070;
-  --blue:      #5090E0;
-  --blue-bg:   #0D2540;
-  --blue-t:    #90C0F0;
-  --red:       #E05050;
-  --red-bg:    #3A1010;
-  --red-t:     #F09090;
-  --warn-bg:   #3A2808;
-  --warn-t:    #F0C070;
+  --bg:      #0F0E0B;
+  --bg2:     #181610;
+  --bg3:     #221F18;
+  --ink:     #F5F0E5;
+  --ink2:    #A8A098;
+  --ink3:    #68635A;
+  --surface: #181610;
+  --gold:    #E8A840;
+  --gold-bg: #2A1E08;
+  --gold-t:  #F0C878;
+  --teal:    #40B0B0;
+  --teal-bg: #081A1A;
+  --teal-t:  #80D8D8;
+  --rose:    #E06080;
+  --rose-bg: #1A0810;
+  --rose-t:  #F098B8;
+  --border:  rgba(245,240,229,0.09);
+  --border2: rgba(245,240,229,0.20);
 }
 
-/* ─── RESET & BASE ─────────────────────────────── */
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--bg);
-  color:var(--ink);
-  font-family:'DM Sans',sans-serif;
-  font-size:16px;
-  line-height:1.6;
-  transition:background 0.3s,color 0.3s;
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background 0.4s, color 0.4s;
+  cursor: none;
+  overflow-x: hidden;
 }
-a{color:inherit;text-decoration:none;}
-img{max-width:100%;}
+a { color: inherit; text-decoration: none; }
 
-/* ─── LAYOUT ───────────────────────────────────── */
-.wrap{max-width:920px;margin:0 auto;padding:0 2rem;}
-
-/* ─── NAV ──────────────────────────────────────── */
-nav{
-  position:sticky;top:0;z-index:100;
-  background:var(--bg);
-  border-bottom:0.5px solid var(--border);
-  transition:background 0.3s;
+/* ── CUSTOM CURSOR ───────────────────────────────────── */
+#cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s, opacity 0.2s;
+  mix-blend-mode: multiply;
 }
-.nav-inner{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1.1rem 0;
-  max-width:920px;margin:0 auto;padding-left:2rem;padding-right:2rem;
+[data-theme="dark"] #cursor { mix-blend-mode: screen; }
+#cursor.hovering {
+  width: 40px; height: 40px;
+  background: var(--gold);
+  opacity: 0.35;
 }
-.nav-logo{
-  font-family:'Lora',serif;font-size:16px;font-weight:500;
-  letter-spacing:-0.3px;color:var(--ink);
-}
-.nav-right{display:flex;align-items:center;gap:1.8rem;}
-.nav-links{display:flex;gap:1.5rem;list-style:none;}
-.nav-links a{
-  font-size:13px;color:var(--ink2);
-  transition:color 0.15s;
-}
-.nav-links a:hover{color:var(--ink);}
-.theme-toggle{
-  width:36px;height:20px;border-radius:10px;
-  background:var(--bg3);border:0.5px solid var(--border2);
-  cursor:pointer;position:relative;transition:background 0.3s;
-  flex-shrink:0;
-}
-.theme-toggle::after{
-  content:'';position:absolute;
-  top:3px;left:3px;
-  width:14px;height:14px;border-radius:50%;
-  background:var(--ink2);
-  transition:transform 0.25s, background 0.3s;
-}
-[data-theme="dark"] .theme-toggle::after{transform:translateX(16px);}
-
-/* ─── HERO ─────────────────────────────────────── */
-.hero{
-  padding:5rem 0 3.5rem;
-  display:grid;grid-template-columns:1fr 110px;
-  gap:2rem;align-items:start;
-  border-bottom:0.5px solid var(--border);
-}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:11px;font-weight:500;letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--green);background:var(--green-bg);
-  padding:5px 12px;border-radius:20px;
-  margin-bottom:1.3rem;
-}
-.tag-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
-.hero h1{
-  font-family:'Lora',serif;
-  font-size:52px;font-weight:500;
-  line-height:1.1;letter-spacing:-2px;
-  margin-bottom:1.3rem;color:var(--ink);
-}
-.hero h1 em{font-style:italic;font-weight:400;color:var(--accent);}
-.hero-bio{
-  font-size:15.5px;font-weight:300;line-height:1.85;
-  color:var(--ink2);max-width:540px;margin-bottom:1.8rem;
-}
-.hero-bio strong{font-weight:500;color:var(--ink);}
-.hero-ctas{display:flex;gap:10px;flex-wrap:wrap;}
-.btn-fill{
-  font-family:'DM Sans',sans-serif;
-  font-size:13px;font-weight:500;
-  padding:11px 24px;border-radius:28px;
-  border:none;background:var(--ink);color:var(--bg);
-  cursor:pointer;transition:opacity 0.15s;
-}
-.btn-fill:hover{opacity:0.78;}
-.btn-ghost{
-  font-family:'DM Sans',sans-serif;
-  font-size:13px;font-weight:400;
-  padding:11px 24px;border-radius:28px;
-  border:0.5px solid var(--border2);background:transparent;
-  color:var(--ink);cursor:pointer;transition:background 0.15s;
-}
-.btn-ghost:hover{background:var(--bg2);}
-.avatar{
-  width:104px;height:104px;border-radius:50%;
-  background:var(--bg3);border:0.5px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Lora',serif;font-size:30px;font-weight:500;
-  color:var(--ink2);flex-shrink:0;margin-top:0.5rem;
+#cursor-trail {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: left 0.12s ease, top 0.12s ease, width 0.2s, height 0.2s, opacity 0.2s;
+  opacity: 0.5;
 }
 
-/* ─── PEDIGREE BAR ─────────────────────────────── */
-.pedigree{
-  padding:1.8rem 0;
-  border-bottom:0.5px solid var(--border);
-  display:flex;align-items:center;gap:0;
-  overflow:hidden;
-}
-.pedigree-label{
-  font-size:10px;font-weight:500;letter-spacing:0.1em;
-  text-transform:uppercase;color:var(--ink3);
-  white-space:nowrap;margin-right:1.5rem;flex-shrink:0;
-}
-.company-list{
-  display:flex;align-items:center;gap:0;flex-wrap:nowrap;
-  overflow:hidden;
-}
-.company-badge{
-  font-size:12px;font-weight:500;color:var(--ink2);
-  padding:5px 14px;border-radius:20px;
-  border:0.5px solid var(--border);
-  background:var(--surface);
-  white-space:nowrap;margin-right:8px;
-  transition:color 0.15s,border-color 0.15s;
-}
-.company-badge:hover{color:var(--ink);border-color:var(--border2);}
-.company-sep{color:var(--ink3);margin-right:8px;font-size:10px;}
-
-/* ─── STATS ────────────────────────────────────── */
-.stats{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;border:0.5px solid var(--border);
-  border-radius:var(--radius);overflow:hidden;
-  margin:2.5rem 0;background:var(--border);
-}
-.stat{background:var(--surface);padding:1.2rem 1rem;text-align:center;}
-.stat-n{
-  font-family:'Lora',serif;font-size:26px;font-weight:500;
-  display:block;margin-bottom:4px;color:var(--ink);line-height:1;
-}
-.stat-l{font-size:10px;color:var(--ink3);letter-spacing:0.07em;text-transform:uppercase;}
-
-/* ─── SECTION ──────────────────────────────────── */
-.section{padding:3rem 0;border-bottom:0.5px solid var(--border);}
-.section:last-child{border-bottom:none;}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem;}
-.sec-title{font-family:'Lora',serif;font-size:24px;font-weight:500;letter-spacing:-0.5px;}
-.sec-note{font-size:12px;color:var(--ink3);}
-
-/* ─── PROJECT CARDS ────────────────────────────── */
-.proj-stack{display:flex;flex-direction:column;gap:18px;}
-.proj-card{
-  background:var(--surface);
-  border:0.5px solid var(--border);
-  border-radius:var(--radius);
-  padding:1.8rem;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:2rem;align-items:start;
-  transition:border-color 0.2s,box-shadow 0.2s;
-}
-.proj-card:hover{
-  border-color:var(--border2);
-  box-shadow:0 4px 24px rgba(0,0,0,0.05);
-}
-[data-theme="dark"] .proj-card:hover{
-  box-shadow:0 4px 24px rgba(0,0,0,0.3);
-}
-.proj-type{
-  font-size:10px;font-weight:500;letter-spacing:0.1em;
-  text-transform:uppercase;padding:3px 10px;
-  border-radius:10px;display:inline-block;margin-bottom:0.9rem;
-}
-.t-pm{color:var(--blue-t);background:var(--blue-bg);}
-.t-fintech{color:var(--red-t);background:var(--red-bg);}
-.t-consumer{color:var(--green-t);background:var(--green-bg);}
-.proj-name{
-  font-family:'Lora',serif;font-size:22px;font-weight:500;
-  line-height:1.2;margin-bottom:5px;letter-spacing:-0.4px;
-}
-.proj-tagline{
-  font-size:13px;color:var(--ink2);font-style:italic;
-  margin-bottom:1rem;
-}
-.proj-desc{
-  font-size:13.5px;font-weight:300;line-height:1.75;
-  color:var(--ink2);margin-bottom:1.1rem;
-}
-.proj-desc strong{font-weight:500;color:var(--ink);}
-.proj-metrics{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.1rem;}
-.metric{
-  background:var(--bg2);border-radius:var(--radius-sm);
-  padding:9px 14px;text-align:center;min-width:72px;
-}
-.metric-n{
-  font-family:'Lora',serif;font-size:20px;font-weight:500;
-  display:block;line-height:1.1;color:var(--ink);
-}
-.metric-l{font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:0.05em;}
-.proj-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.1rem;}
-.tag{
-  font-size:11px;color:var(--ink2);
-  background:var(--bg2);
-  border:0.5px solid var(--border);
-  padding:3px 10px;border-radius:10px;
-}
-.proj-link{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:12px;font-weight:500;
-  color:var(--blue);border:0.5px solid var(--blue);
-  padding:7px 16px;border-radius:20px;
-  transition:background 0.15s;
-}
-.proj-link:hover{background:var(--blue-bg);}
-
-/* project visuals */
-.proj-visual{
-  background:var(--bg2);border-radius:var(--radius-sm);
-  border:0.5px solid var(--border);
-  padding:1.1rem;min-height:220px;
-}
-.vis-head{
-  font-size:10px;font-weight:500;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--ink3);margin-bottom:10px;
-}
-.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
-.bar-lbl{font-size:10px;color:var(--ink3);width:58px;text-align:right;flex-shrink:0;}
-.bar-track{flex:1;height:5px;background:var(--bg3);border-radius:3px;overflow:hidden;}
-.bar-fill{height:100%;border-radius:3px;}
-.bar-pct{font-size:10px;color:var(--ink3);width:28px;}
-.kanban{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;}
-.k-col{background:var(--surface);border-radius:var(--radius-sm);padding:7px;border:0.5px solid var(--border);}
-.k-col-h{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);margin-bottom:5px;}
-.k-item{background:var(--bg2);border-radius:5px;padding:5px 7px;font-size:10px;color:var(--ink);margin-bottom:4px;line-height:1.4;}
-.shield-item{
-  display:flex;align-items:center;gap:8px;
-  background:var(--surface);border:0.5px solid var(--border);
-  border-radius:var(--radius-sm);padding:7px 9px;margin-bottom:6px;
-}
-.sh-icon{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
-.sh-safe{background:var(--green-bg);}
-.sh-warn{background:var(--warn-bg);}
-.sh-risk{background:var(--red-bg);}
-.sh-main{font-size:10px;font-weight:500;color:var(--ink);}
-.sh-sub{font-size:9px;color:var(--ink3);}
-.sh-badge{margin-left:auto;font-size:9px;font-weight:500;padding:2px 7px;border-radius:8px;white-space:nowrap;}
-.b-safe{color:var(--green-t);background:var(--green-bg);}
-.b-warn{color:var(--warn-t);background:var(--warn-bg);}
-.b-risk{color:var(--red-t);background:var(--red-bg);}
-.ten-item{
-  background:var(--surface);border:0.5px solid var(--border);
-  border-radius:var(--radius-sm);padding:8px 10px;margin-bottom:6px;
-}
-.ten-type{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:0.07em;color:var(--blue);}
-.ten-title{font-size:11px;font-weight:500;color:var(--ink);margin:2px 0;}
-.ten-meta{font-size:9px;color:var(--ink3);}
-.waitlist-bar{
-  margin-top:10px;background:var(--surface);
-  border:0.5px solid var(--border);border-radius:var(--radius-sm);
-  padding:8px 10px;display:flex;align-items:center;justify-content:space-between;
-}
-.wl-txt{font-size:10px;color:var(--ink3);}
-.wl-badge{font-size:10px;font-weight:500;color:var(--green);}
-
-/* ─── EXPERIENCE ───────────────────────────────── */
-.exp-list{display:flex;flex-direction:column;gap:0;}
-.exp-item{
-  padding:1.5rem 0;
-  border-bottom:0.5px solid var(--border);
-  display:grid;grid-template-columns:1fr auto;
-  gap:1rem;
-}
-.exp-item:last-child{border-bottom:none;}
-.exp-company{
-  font-size:11px;font-weight:500;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--accent);margin-bottom:3px;
-}
-.exp-role{
-  font-family:'Lora',serif;font-size:17px;font-weight:500;
-  letter-spacing:-0.2px;margin-bottom:6px;color:var(--ink);
-}
-.exp-desc{font-size:13px;font-weight:300;line-height:1.7;color:var(--ink2);}
-.exp-desc strong{font-weight:500;color:var(--ink);}
-.exp-date{
-  font-size:11px;color:var(--ink3);white-space:nowrap;
-  text-align:right;padding-top:2px;
-}
-.exp-award{
-  display:inline-flex;align-items:center;gap:5px;
-  background:var(--warn-bg);color:var(--warn-t);
-  font-size:10px;font-weight:500;
-  padding:3px 9px;border-radius:10px;margin-top:8px;
+/* ── PROGRESS BAR ────────────────────────────────────── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--progress);
+  height: 2px;
+  background: var(--gold);
+  z-index: 200;
+  transition: width 0.1s linear;
 }
 
-/* ─── SKILLS ───────────────────────────────────── */
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.skill-group{background:var(--bg2);border-radius:var(--radius);padding:1.1rem;}
-.sg-title{
-  font-size:10px;font-weight:500;letter-spacing:0.09em;
-  text-transform:uppercase;color:var(--ink3);margin-bottom:0.75rem;
+/* ── NAV ─────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 2px; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 2rem;
 }
-.skill-pill{
-  display:inline-block;font-size:11px;color:var(--ink);
-  background:var(--surface);border:0.5px solid var(--border);
-  padding:3px 10px;border-radius:10px;margin:2px 2px 0 0;
+.nav-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  border-radius: 50px;
+  backdrop-filter: blur(12px);
+  transition: background 0.4s, border-color 0.3s;
+  margin-top: 0.5rem;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: -0.3px;
+}
+.nav-links { display: flex; gap: 1.8rem; list-style: none; }
+.nav-links a {
+  font-size: 12px; font-weight: 500;
+  color: var(--ink2); letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -3px; left: 0; right: 0;
+  height: 1px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.25s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+.theme-btn {
+  width: 38px; height: 22px; border-radius: 11px;
+  background: var(--bg3); border: 0.5px solid var(--border2);
+  cursor: pointer; position: relative; transition: background 0.3s;
+  flex-shrink: 0;
+}
+.theme-btn::after {
+  content: ''; position: absolute;
+  top: 3px; left: 3px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--ink2);
+  transition: transform 0.25s, background 0.3s;
+}
+[data-theme="dark"] .theme-btn::after { transform: translateX(16px); }
+
+/* ── CHAPTER LABEL ───────────────────────────────────── */
+.chapter {
+  position: fixed; left: 2.5rem; top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.ch-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--border2);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  position: relative;
+}
+.ch-dot.active {
+  background: var(--gold);
+  transform: scale(1.4);
+}
+.ch-dot:hover::after {
+  content: attr(data-label);
+  position: absolute; left: 18px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px; font-weight: 500;
+  color: var(--ink2);
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-/* ─── CONTACT ──────────────────────────────────── */
-.contact-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.2rem;}
-.c-card{
-  background:var(--bg2);border:0.5px solid var(--border);
-  border-radius:var(--radius);padding:1rem 1.2rem;
-  display:flex;align-items:center;gap:10px;
-  transition:background 0.15s;
+/* ── SECTIONS (scroll reveal) ────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
 }
-.c-card:hover{background:var(--surface);}
-.c-icon{
-  width:32px;height:32px;border-radius:8px;
-  background:var(--surface);border:0.5px solid var(--border);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── LAYOUT ──────────────────────────────────────────── */
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+/* ── HERO ────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8rem 2rem 4rem;
+  max-width: 1000px; margin: 0 auto;
+  position: relative;
 }
-.c-label{font-size:13px;font-weight:500;color:var(--ink);}
-.c-sub{font-size:11px;color:var(--ink3);}
-.resume-band{
-  background:var(--bg2);border-radius:var(--radius);
-  padding:1.5rem;display:flex;
-  justify-content:space-between;align-items:center;gap:1rem;
-  border:0.5px solid var(--border);
+.hero-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 10px;
 }
-.rb-text h3{font-family:'Lora',serif;font-size:17px;font-weight:500;margin-bottom:4px;}
-.rb-text p{font-size:13px;color:var(--ink2);font-weight:300;}
-.pub-badge{
-  display:inline-flex;align-items:center;gap:5px;
-  background:var(--accent-bg);color:var(--accent-t);
-  font-size:10px;font-weight:500;
-  padding:4px 10px;border-radius:10px;margin-top:6px;
+.hero-eyebrow::before {
+  content: ''; display: inline-block;
+  width: 32px; height: 1px; background: var(--gold);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 700; line-height: 1.04;
+  letter-spacing: -2px;
+  margin-bottom: 2rem;
+}
+.hero h1 .line { display: block; overflow: hidden; }
+.hero h1 .line span {
+  display: block;
+  animation: slideUp 0.9s cubic-bezier(0.16,1,0.3,1) both;
+}
+.hero h1 .line:nth-child(2) span { animation-delay: 0.12s; }
+.hero h1 .line:nth-child(3) span { animation-delay: 0.22s; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+.hero-sub {
+  font-size: 17px; font-weight: 300; line-height: 1.8;
+  color: var(--ink2); max-width: 560px;
+  margin-bottom: 2.5rem;
+  animation: fadeIn 1s 0.5s both;
+}
+.hero-sub strong { font-weight: 600; color: var(--ink); }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.hero-ctas {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  animation: fadeIn 1s 0.7s both;
+}
+.btn-primary {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 13px; font-weight: 700;
+  padding: 13px 28px; border-radius: 50px;
+  border: none; background: var(--ink); color: var(--bg);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  letter-spacing: 0.03em;
+}
+.btn-primary:hover { transform: translateY(-2px); background: var(--gold); }
+.btn-outline {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 13px; font-weight: 500;
+  padding: 13px 28px; border-radius: 50px;
+  border: 1px solid var(--border2); background: transparent;
+  color: var(--ink); cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.btn-outline:hover { transform: translateY(-2px); background: var(--bg2); }
+.hero-scroll {
+  position: absolute; bottom: 3rem; left: 0;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ink3);
+  display: flex; align-items: center; gap: 10px;
+  animation: fadeIn 1s 1.2s both;
+}
+.scroll-line {
+  width: 40px; height: 1px; background: var(--ink3);
+  position: relative; overflow: hidden;
+}
+.scroll-line::after {
+  content: ''; position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: var(--gold);
+  animation: scanLine 2s 1.5s infinite;
+}
+@keyframes scanLine {
+  0% { left: -100%; } 50%, 100% { left: 100%; }
+}
+.hero-companies {
+  position: absolute; bottom: 3rem; right: 0;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
+  animation: fadeIn 1s 1s both;
+}
+.companies-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ink3); margin-bottom: 4px;
+}
+.company-row {
+  display: flex; gap: 8px;
+}
+.co-badge {
+  font-size: 11px; font-weight: 500; color: var(--ink2);
+  padding: 4px 12px; border-radius: 20px;
+  border: 0.5px solid var(--border);
+  background: var(--surface);
+  transition: border-color 0.2s, color 0.2s;
+}
+.co-badge:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── CHAPTER DIVIDER ─────────────────────────────────── */
+.ch-divider {
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 5rem 0 3rem;
+}
+.ch-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px; font-weight: 400; font-style: italic;
+  color: var(--gold); letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.ch-line { flex: 1; height: 0.5px; background: var(--border); }
+.ch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px; font-weight: 400;
+  color: var(--ink3); letter-spacing: 0.12em;
+  text-transform: uppercase; white-space: nowrap;
 }
 
-/* ─── FOOTER ───────────────────────────────────── */
-footer{
-  padding:2rem 0;text-align:center;
-  font-size:12px;color:var(--ink3);
-  border-top:0.5px solid var(--border);
+/* ── STORY SECTION ───────────────────────────────────── */
+.story-section { padding: 0 2rem 6rem; max-width: 1000px; margin: 0 auto; }
+
+/* ── ORIGIN STORY ────────────────────────────────────── */
+.origin-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.origin-text .big-q {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700; line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 1.5rem;
+}
+.origin-text .big-q em { font-style: italic; color: var(--gold); }
+.origin-text p {
+  font-size: 15px; font-weight: 300; line-height: 1.85;
+  color: var(--ink2); margin-bottom: 1rem;
+}
+.origin-text p strong { font-weight: 600; color: var(--ink); }
+.origin-visual {
+  position: relative;
+}
+.timeline {
+  display: flex; flex-direction: column; gap: 0;
+  position: relative;
+}
+.timeline::before {
+  content: ''; position: absolute;
+  left: 18px; top: 24px; bottom: 24px;
+  width: 1px; background: var(--border2);
+}
+.tl-item {
+  display: flex; gap: 1.2rem;
+  padding: 0 0 2rem;
+  position: relative;
+}
+.tl-dot {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0; position: relative; z-index: 1;
+  transition: border-color 0.3s, background 0.3s;
+}
+.tl-item:hover .tl-dot {
+  border-color: var(--gold); background: var(--gold-bg);
+}
+.tl-year {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 2px;
+}
+.tl-role {
+  font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.3;
+}
+.tl-company {
+  font-size: 12px; color: var(--ink3); font-weight: 400;
 }
 
-/* ─── ANIMATIONS ───────────────────────────────── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
-.hero,.pedigree,.stats,.section{animation:fadeUp 0.55s ease both;}
-.section:nth-child(2){animation-delay:0.05s;}
-.section:nth-child(3){animation-delay:0.10s;}
-.section:nth-child(4){animation-delay:0.15s;}
-
-/* ─── RESPONSIVE ───────────────────────────────── */
-@media(max-width:700px){
-  .hero{grid-template-columns:1fr;}.avatar{display:none;}
-  .hero h1{font-size:38px;}
-  .proj-card{grid-template-columns:1fr;}
-  .stats{grid-template-columns:repeat(2,1fr);}
-  .skills-grid{grid-template-columns:1fr 1fr;}
-  .exp-item{grid-template-columns:1fr;}
-  .exp-date{text-align:left;}
-  .pedigree{flex-wrap:wrap;}
+/* ── WORK SECTION ────────────────────────────────────── */
+.work-intro {
+  margin-bottom: 3rem;
 }
-@media(max-width:480px){
-  .wrap{padding:0 1.2rem;}
-  .skills-grid{grid-template-columns:1fr;}
+.work-intro .pull-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 400; font-style: italic;
+  line-height: 1.4; color: var(--ink);
+  border-left: 3px solid var(--gold);
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.work-intro p {
+  font-size: 15px; color: var(--ink2); font-weight: 300; line-height: 1.8;
+  max-width: 600px;
+}
+
+.proj-stack { display: flex; flex-direction: column; gap: 2px; }
+
+.proj-card {
+  border: 0.5px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--surface);
+  transition: border-color 0.3s;
+}
+.proj-card:hover { border-color: var(--border2); }
+
+.proj-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 1.8rem;
+  cursor: pointer;
+  gap: 1rem;
+}
+.proj-header-left { display: flex; align-items: center; gap: 1.2rem; }
+.proj-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 700; font-style: italic;
+  color: var(--border2); flex-shrink: 0;
+  transition: color 0.3s;
+}
+.proj-card:hover .proj-num { color: var(--gold); }
+.proj-type-pill {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 3px 10px;
+  border-radius: 20px; display: inline-block; margin-bottom: 4px;
+}
+.t-pm   { color: var(--teal-t);  background: var(--teal-bg); }
+.t-ft   { color: var(--rose-t);  background: var(--rose-bg); }
+.t-co   { color: var(--gold-t);  background: var(--gold-bg); }
+.proj-title-wrap .proj-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 700;
+  letter-spacing: -0.3px; color: var(--ink);
+}
+.proj-tagline-text {
+  font-size: 13px; color: var(--ink3); font-weight: 300;
+}
+.proj-stats {
+  display: flex; gap: 1.5rem; flex-shrink: 0;
+}
+.pstat { text-align: center; }
+.pstat-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--ink); display: block; line-height: 1;
+}
+.pstat-l {
+  font-size: 9px; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--ink3);
+}
+.proj-toggle {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 0.5px solid var(--border); background: var(--bg2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--ink2); flex-shrink: 0;
+  transition: background 0.2s, transform 0.3s;
+}
+.proj-card.open .proj-toggle { transform: rotate(45deg); background: var(--gold-bg); color: var(--gold); }
+
+.proj-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.proj-card.open .proj-body { max-height: 800px; }
+.proj-body-inner {
+  padding: 0 1.8rem 1.8rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2rem; border-top: 0.5px solid var(--border);
+  padding-top: 1.5rem;
+}
+.proj-story p {
+  font-size: 14px; font-weight: 300; line-height: 1.8;
+  color: var(--ink2); margin-bottom: 1rem;
+}
+.proj-story p strong { font-weight: 600; color: var(--ink); }
+.proj-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 0.5rem; }
+.tag {
+  font-size: 11px; color: var(--ink2);
+  background: var(--bg2); border: 0.5px solid var(--border);
+  padding: 3px 10px; border-radius: 20px;
+}
+.proj-live-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+  color: var(--teal); border: 1px solid var(--teal);
+  padding: 8px 18px; border-radius: 50px; margin-top: 1rem;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.proj-live-btn:hover { background: var(--teal-bg); }
+.proj-live-btn.rose { color: var(--rose); border-color: var(--rose); }
+.proj-live-btn.rose:hover { background: var(--rose-bg); }
+.proj-live-btn.gold { color: var(--gold); border-color: var(--gold); }
+.proj-live-btn.gold:hover { background: var(--gold-bg); }
+
+/* vis panels */
+.vis-panel {
+  background: var(--bg);
+  border-radius: var(--r-sm);
+  border: 0.5px solid var(--border);
+  padding: 1rem;
+}
+.vis-head {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink3); margin-bottom: 10px;
+}
+.bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.bar-lbl { font-size: 10px; color: var(--ink3); width: 56px; text-align: right; flex-shrink: 0; }
+.bar-track { flex: 1; height: 5px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; }
+.bar-pct { font-size: 10px; color: var(--ink3); width: 28px; }
+.kanban { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; margin-top: 10px; }
+.k-col { background: var(--surface); border-radius: 6px; padding: 6px; border: 0.5px solid var(--border); }
+.k-col-h { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink3); margin-bottom: 5px; }
+.k-item { background: var(--bg2); border-radius: 4px; padding: 5px 7px; font-size: 10px; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
+.sh-item { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 0.5px solid var(--border); border-radius: 6px; padding: 6px 8px; margin-bottom: 6px; }
+.sh-ico { width: 24px; height: 24px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+.sh-main { font-size: 10px; font-weight: 600; color: var(--ink); }
+.sh-sub { font-size: 9px; color: var(--ink3); }
+.sh-badge { margin-left: auto; font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 8px; white-space: nowrap; }
+.safe { color: var(--teal-t); background: var(--teal-bg); }
+.warn { color: var(--gold-t); background: var(--gold-bg); }
+.risk { color: var(--rose-t); background: var(--rose-bg); }
+.ten-item { background: var(--surface); border: 0.5px solid var(--border); border-radius: 6px; padding: 8px 10px; margin-bottom: 5px; }
+.ten-type { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--teal); }
+.ten-title { font-size: 11px; font-weight: 600; color: var(--ink); margin: 2px 0; }
+.ten-meta { font-size: 9px; color: var(--ink3); }
+
+/* ── PHILOSOPHY SECTION ──────────────────────────────── */
+.philosophy { padding: 0 2rem 6rem; max-width: 1000px; margin: 0 auto; }
+.phil-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.phil-card {
+  padding: 1.8rem;
+  border: 0.5px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.phil-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.phil-icon { font-size: 24px; margin-bottom: 1rem; }
+.phil-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px; font-weight: 700;
+  margin-bottom: 0.6rem; color: var(--ink);
+}
+.phil-text {
+  font-size: 13px; font-weight: 300; line-height: 1.7;
+  color: var(--ink2);
+}
+
+/* ── CREDENTIALS ─────────────────────────────────────── */
+.creds { padding: 0 2rem 6rem; max-width: 1000px; margin: 0 auto; }
+.creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cred-item {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 1.2rem;
+  background: var(--surface); border: 0.5px solid var(--border);
+  border-radius: var(--r); transition: border-color 0.2s;
+}
+.cred-item:hover { border-color: var(--border2); }
+.cred-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--gold-bg); display: flex; align-items: center;
+  justify-content: center; font-size: 16px; flex-shrink: 0;
+}
+.cred-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 3px; line-height: 1.3; }
+.cred-sub { font-size: 11px; color: var(--ink3); font-weight: 300; }
+.award-banner {
+  background: var(--gold-bg);
+  border: 0.5px solid var(--gold);
+  border-radius: var(--r);
+  padding: 1.5rem 2rem;
+  display: flex; align-items: center; gap: 1.5rem;
+  margin-top: 16px;
+}
+.award-star { font-size: 36px; }
+.award-text h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; font-weight: 700; color: var(--gold-t);
+  margin-bottom: 4px;
+}
+.award-text p { font-size: 13px; color: var(--gold-t); font-weight: 300; }
+
+/* ── CONTACT ─────────────────────────────────────────── */
+.contact-section {
+  padding: 0 2rem 6rem; max-width: 1000px; margin: 0 auto;
+}
+.contact-hero {
+  text-align: center; padding: 3rem 0 3.5rem;
+}
+.contact-hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 700; line-height: 1.1;
+  letter-spacing: -1.5px; margin-bottom: 1rem;
+}
+.contact-hero h2 em { font-style: italic; color: var(--gold); }
+.contact-hero p {
+  font-size: 16px; color: var(--ink2); font-weight: 300;
+  line-height: 1.7; max-width: 480px; margin: 0 auto 2.5rem;
+}
+.contact-cards {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 12px;
+  max-width: 600px; margin: 0 auto;
+}
+.c-card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 1.2rem 1.5rem;
+  display: flex; align-items: center; gap: 12px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.c-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+.c-icon {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: var(--bg2); display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0;
+}
+.c-label { font-size: 14px; font-weight: 600; color: var(--ink); }
+.c-sub { font-size: 11px; color: var(--ink3); }
+
+/* ── FOOTER ──────────────────────────────────────────── */
+footer {
+  border-top: 0.5px solid var(--border);
+  padding: 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1000px; margin: 0 auto;
+  font-size: 12px; color: var(--ink3);
+  flex-wrap: wrap; gap: 0.5rem;
+}
+footer a { color: var(--gold); }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media(max-width:768px){
+  .chapter { display: none; }
+  .origin-grid { grid-template-columns: 1fr; }
+  .proj-body-inner { grid-template-columns: 1fr; }
+  .proj-stats { display: none; }
+  .phil-grid { grid-template-columns: 1fr; }
+  .creds-grid { grid-template-columns: 1fr; }
+  .contact-cards { grid-template-columns: 1fr; }
+  .hero-companies { display: none; }
+  .hero h1 { font-size: 42px; }
+}
+@media(max-width:500px){
+  .wrap { padding: 0 1.2rem; }
+  nav { padding: 0 1rem; }
+  .hero { padding: 6rem 1.2rem 4rem; }
+  .story-section,.philosophy,.creds,.contact-section { padding-left: 1.2rem; padding-right: 1.2rem; }
 }
 </style>
 </head>
 <body>
 
+<!-- Custom cursor -->
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+<div id="progress-bar"></div>
+
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
     <span class="nav-logo">Ayobami Adedeji</span>
+    <ul class="nav-links">
+      <li><a href="#story">Story</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
     <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="theme-toggle" id="themeBtn" aria-label="Toggle dark mode"></button>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"></button>
     </div>
   </div>
 </nav>
 
-<main class="wrap">
+<!-- Chapter nav dots -->
+<div class="chapter" id="chapterNav">
+  <div class="ch-dot active" data-label="Intro" data-target="hero" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})"></div>
+  <div class="ch-dot" data-label="Story" data-target="story" onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'})"></div>
+  <div class="ch-dot" data-label="Work" data-target="work" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})"></div>
+  <div class="ch-dot" data-label="Philosophy" data-target="philosophy" onclick="document.getElementById('philosophy').scrollIntoView({behavior:'smooth'})"></div>
+  <div class="ch-dot" data-label="Contact" data-target="contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"></div>
+</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <div class="hero-tag"><span class="tag-dot"></span>Open to Senior PM opportunities</div>
-    <h1>I don't just build.<br>I think of the<br><em>customer first.</em></h1>
-    <p class="hero-bio">
-      I'm a <strong>Product Manager with 7+ years</strong> across AWS, Apple, Google, and Bank of America building tools that reduce fraud, accelerate launches, and make complex systems feel simple. My process always starts with research: understanding the real job users need done before writing a single line of spec. I bring <strong>technical depth, design empathy, and cross-functional leadership</strong> to every product I touch from AI-powered fraud detection platforms for small businesses to consumer apps already growing a pre-launch waitlist. I build for outcomes. I design for people.
+<!-- ══ CHAPTER 1: HERO ══════════════════════════════════ -->
+<section id="hero">
+  <div class="hero">
+    <div class="hero-eyebrow">Product Manager · Seattle, WA</div>
+    <h1>
+      <span class="line"><span>I don't just build.</span></span>
+      <span class="line"><span>I think of the</span></span>
+      <span class="line"><span><em>customer first.</em></span></span>
+    </h1>
+    <p class="hero-sub">
+      <strong>7+ years</strong> shipping products at AWS, Apple, Google & Bank of America.
+      Research before roadmaps. Empathy before engineering. Outcomes, always.
     </p>
     <div class="hero-ctas">
-      <a href="#work"><button class="btn-fill">View my work</button></a>
-      <a href="#contact"><button class="btn-ghost">Get in touch</button></a>
+      <a href="#work"><button class="btn-primary">See my work ↓</button></a>
+      <a href="#contact"><button class="btn-outline">Get in touch</button></a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll to explore
+    </div>
+    <div class="hero-companies">
+      <p class="companies-label">Experience at</p>
+      <div class="company-row">
+        <span class="co-badge">AWS</span>
+        <span class="co-badge">Apple</span>
+        <span class="co-badge">Google</span>
+        <span class="co-badge">Bank of America</span>
+      </div>
     </div>
   </div>
-  <div class="avatar">AA</div>
 </section>
 
-<!-- PEDIGREE BAR -->
-<div class="pedigree">
-  <span class="pedigree-label">Experience at</span>
-  <div class="company-list">
-    <span class="company-badge">Amazon Web Services</span>
-    <span class="company-badge">Bank of America</span>
-    <span class="company-badge">Google</span>
-    <span class="company-badge">Apple</span>
-    <span class="company-badge">Northeastern University</span>
-  </div>
+<!-- ══ CHAPTER 2: STORY ══════════════════════════════════ -->
+<div class="ch-divider wrap reveal" id="story">
+  <span class="ch-num">Chapter 01</span>
+  <div class="ch-line"></div>
+  <span class="ch-title">The journey</span>
 </div>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat"><span class="stat-n">7+</span><span class="stat-l">Years PM</span></div>
-  <div class="stat"><span class="stat-n">60%</span><span class="stat-l">Time saved at AWS</span></div>
-  <div class="stat"><span class="stat-n">247</span><span class="stat-l">Waitlist signups</span></div>
-  <div class="stat"><span class="stat-n">2×</span><span class="stat-l">AWSome Awards</span></div>
+<section class="story-section">
+  <div class="origin-grid">
+    <div class="origin-text reveal">
+      <p class="big-q">Every great product starts with a<br><em>question, not an answer.</em></p>
+      <p>My career has been one continuous act of asking <strong>"what do people actually need here?"</strong> — then building the thing that answers it. Not the thing that was easiest to build. Not the thing that already existed. The right thing.</p>
+      <p>From coordinating global product launches at <strong>AWS</strong>, to building enterprise fraud detection systems at <strong>Bank of America</strong>, to shipping compliance tooling at <strong>Google</strong> and R&D products at <strong>Apple</strong> — I've always sat at the intersection of technical depth and human understanding.</p>
+      <p>The products I build outside work hours? They prove I don't stop thinking like a PM when I log off.</p>
+    </div>
+    <div class="origin-visual reveal reveal-delay-2">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot">🚀</div>
+          <div>
+            <p class="tl-year">2024 – Present</p>
+            <p class="tl-role">Launch Program Manager II</p>
+            <p class="tl-company">Amazon Web Services · Seattle</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">🏦</div>
+          <div>
+            <p class="tl-year">2023 – 2024</p>
+            <p class="tl-role">IT Program Manager — Fraud & Auth</p>
+            <p class="tl-company">Bank of America · Seattle</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">🗺️</div>
+          <div>
+            <p class="tl-year">2022 – 2023</p>
+            <p class="tl-role">Communication Program Manager</p>
+            <p class="tl-company">Google Maps · Seattle</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">🍎</div>
+          <div>
+            <p class="tl-year">2021 – 2022</p>
+            <p class="tl-role">Product Manager — Marcom R&D</p>
+            <p class="tl-company">Apple Inc. · Cupertino</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">🎓</div>
+          <div>
+            <p class="tl-year">2022</p>
+            <p class="tl-role">MS Project Management</p>
+            <p class="tl-company">Northeastern University · Seattle</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHAPTER 3: WORK ══════════════════════════════════ -->
+<div class="ch-divider wrap reveal" id="work">
+  <span class="ch-num">Chapter 02</span>
+  <div class="ch-line"></div>
+  <span class="ch-title">The work</span>
 </div>
 
-<!-- PROJECTS -->
-<section class="section" id="work">
-  <div class="sec-head">
-    <span class="sec-title">Case studies</span>
-    <span class="sec-note">3 live products</span>
+<section class="story-section">
+  <div class="work-intro reveal">
+    <p class="pull-quote">"I saw a gap. I didn't write a ticket — I built the solution."</p>
+    <p>Three products. Three problems I couldn't stop thinking about. Each one built because the existing tools weren't good enough for the people who needed them.</p>
   </div>
+
   <div class="proj-stack">
 
-    <!-- LaunchHub -->
-    <div class="proj-card">
+    <!-- Project 1 -->
+    <div class="proj-card reveal" id="p1">
+      <div class="proj-header" onclick="toggleProject('p1')">
+        <div class="proj-header-left">
+          <span class="proj-num">01</span>
+          <div class="proj-title-wrap">
+            <span class="proj-type-pill t-pm">Product Tool</span>
+            <p class="proj-name">LaunchHub — Launch Program Manager</p>
+            <p class="proj-tagline-text">Born from a real gap I saw at AWS</p>
+          </div>
+        </div>
+        <div class="proj-stats">
+          <div class="pstat"><span class="pstat-n">60%</span><span class="pstat-l">Time saved</span></div>
+          <div class="pstat"><span class="pstat-n">94%</span><span class="pstat-l">On-time rate</span></div>
+        </div>
+        <div class="proj-toggle">+</div>
+      </div>
       <div class="proj-body">
-        <span class="proj-type t-pm">Product Tool</span>
-        <p class="proj-name">LaunchHub — Launch Program Manager</p>
-        <p class="proj-tagline">Born out of a real gap I saw at AWS</p>
-        <p class="proj-desc">
-          While managing AWS cloud product launches, I noticed launch performance data was fragmented across disconnected systems. I didn't write a ticket — I <strong>designed, built, and shipped</strong> the solution myself. LaunchHub consolidates real-time task tracking, cross-functional team coordination, Workfront integration, and automation rules into a single dashboard — with Board, List, Table, and Calendar views.
-          <br><br>
-          The result at AWS: <strong>60%+ reduction in weekly status report compilation time</strong> and the elimination of manual tracking errors that had previously caused missed escalation windows.
-        </p>
-        <div class="proj-metrics">
-          <div class="metric"><span class="metric-n">60%</span><span class="metric-l">Time saved</span></div>
-          <div class="metric"><span class="metric-n">94%</span><span class="metric-l">On-time rate</span></div>
-          <div class="metric"><span class="metric-n">4</span><span class="metric-l">Views built</span></div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">Roadmapping</span><span class="tag">Cross-functional</span>
-          <span class="tag">Workfront</span><span class="tag">Automation</span>
-          <span class="tag">GTM strategy</span>
-        </div>
-        <a href="https://adedejiayobami0-ux.github.io/ticket-Tool/launch-manager.html" target="_blank" class="proj-link">View live ↗</a>
-      </div>
-      <div class="proj-visual">
-        <p class="vis-head">Task progress by type</p>
-        <div class="bar-row"><span class="bar-lbl">Website</span><div class="bar-track"><div class="bar-fill" style="width:88%;background:var(--blue);"></div></div><span class="bar-pct">88%</span></div>
-        <div class="bar-row"><span class="bar-lbl">News Blog</span><div class="bar-track"><div class="bar-fill" style="width:83%;background:var(--green);"></div></div><span class="bar-pct">83%</span></div>
-        <div class="bar-row"><span class="bar-lbl">Social</span><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--accent);"></div></div><span class="bar-pct">80%</span></div>
-        <div class="bar-row"><span class="bar-lbl">Video</span><div class="bar-track"><div class="bar-fill" style="width:38%;background:var(--red);"></div></div><span class="bar-pct">38%</span></div>
-        <div class="kanban">
-          <div class="k-col"><p class="k-col-h">To do</p><div class="k-item">Feature blog</div><div class="k-item">Tutorial series</div><div class="k-item">Pricing page</div></div>
-          <div class="k-col"><p class="k-col-h">In progress</p><div class="k-item">Launch blog</div><div class="k-item">Social assets</div><div class="k-item">Demo video</div></div>
-          <div class="k-col"><p class="k-col-h">Done</p><div class="k-item">Content calendar</div><div class="k-item">Testimonials</div><div class="k-item">Teaser trailer</div></div>
+        <div class="proj-body-inner">
+          <div class="proj-story">
+            <p>While managing AWS product launches, I noticed a pattern: launch performance data was scattered across five different systems. Nobody had the full picture. Decisions were slow. Things fell through the cracks.</p>
+            <p>I didn't write a ticket. I <strong>designed, built, and shipped the solution myself</strong> — a unified launch management dashboard with Board, List, Table, and Calendar views, Workfront integration, and smart automation rules.</p>
+            <p><strong>Result: 60%+ reduction in weekly status report compilation time.</strong> Zero manual tracking errors causing missed escalation windows. Two AWSome Award recognitions.</p>
+            <div class="proj-tags">
+              <span class="tag">Roadmapping</span><span class="tag">Cross-functional</span>
+              <span class="tag">Workfront</span><span class="tag">Automation</span><span class="tag">GTM</span>
+            </div>
+            <a href="https://adedejiayobami0-ux.github.io/ticket-Tool/launch-manager.html" target="_blank" class="proj-live-btn">View live product ↗</a>
+          </div>
+          <div class="vis-panel">
+            <p class="vis-head">Task progress by type</p>
+            <div class="bar-row"><span class="bar-lbl">Website</span><div class="bar-track"><div class="bar-fill" style="width:88%;background:var(--teal);"></div></div><span class="bar-pct">88%</span></div>
+            <div class="bar-row"><span class="bar-lbl">News Blog</span><div class="bar-track"><div class="bar-fill" style="width:83%;background:var(--gold);"></div></div><span class="bar-pct">83%</span></div>
+            <div class="bar-row"><span class="bar-lbl">Social</span><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--rose);"></div></div><span class="bar-pct">80%</span></div>
+            <div class="bar-row"><span class="bar-lbl">Video</span><div class="bar-track"><div class="bar-fill" style="width:38%;background:var(--ink3);"></div></div><span class="bar-pct">38%</span></div>
+            <div class="kanban">
+              <div class="k-col"><p class="k-col-h">To do</p><div class="k-item">Feature blog</div><div class="k-item">Tutorial series</div></div>
+              <div class="k-col"><p class="k-col-h">In progress</p><div class="k-item">Launch blog</div><div class="k-item">Demo video</div></div>
+              <div class="k-col"><p class="k-col-h">Done</p><div class="k-item">Content calendar</div><div class="k-item">Testimonials</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- FraudShield -->
-    <div class="proj-card">
+    <!-- Project 2 -->
+    <div class="proj-card reveal reveal-delay-1" id="p2">
+      <div class="proj-header" onclick="toggleProject('p2')">
+        <div class="proj-header-left">
+          <span class="proj-num">02</span>
+          <div class="proj-title-wrap">
+            <span class="proj-type-pill t-ft">Fintech · AI</span>
+            <p class="proj-name">FraudShield SMB</p>
+            <p class="proj-tagline-text">Enterprise-grade fraud detection for Main Street</p>
+          </div>
+        </div>
+        <div class="proj-stats">
+          <div class="pstat"><span class="pstat-n">87.5%</span><span class="pstat-l">Detection rate</span></div>
+          <div class="pstat"><span class="pstat-n">94ms</span><span class="pstat-l">ML latency</span></div>
+        </div>
+        <div class="proj-toggle">+</div>
+      </div>
       <div class="proj-body">
-        <span class="proj-type t-fintech">Fintech · AI</span>
-        <p class="proj-name">FraudShield SMB</p>
-        <p class="proj-tagline">Enterprise fraud detection, built for Main Street</p>
-        <p class="proj-desc">
-          After leading fraud & authentication delivery at Bank of America, I saw a critical gap: SMBs face the same fraud threats as enterprises but lack accessible tooling. I independently <strong>researched, coded, and deployed</strong> a cloud-native AI fraud detection platform — personally configuring the full AWS stack (SageMaker, Lambda, Kinesis, API Gateway, DynamoDB, SNS).
-          <br><br>
-          Validated against 287 synthetic SMB transactions: <strong>87.5% fraud detection rate, 94ms ML scoring latency</strong>. Published 2 peer-reviewed articles in IJRISS (2024).
-        </p>
-        <div class="proj-metrics">
-          <div class="metric"><span class="metric-n">87.5%</span><span class="metric-l">Detection</span></div>
-          <div class="metric"><span class="metric-n">94ms</span><span class="metric-l">Latency</span></div>
-          <div class="metric"><span class="metric-n">2</span><span class="metric-l">Papers published</span></div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">AI/ML</span><span class="tag">AWS SageMaker</span>
-          <span class="tag">Fintech</span><span class="tag">Risk UX</span>
-          <span class="tag">SMB</span><span class="tag">Research</span>
-        </div>
-        <div class="pub-badge">📄 IJRISS Peer-Reviewed · 2024</div><br><br>
-        <a href="https://adedejiayobami0-ux.github.io/fraudshieldsmb/" target="_blank" class="proj-link">View live ↗</a>
-      </div>
-      <div class="proj-visual">
-        <p class="vis-head">Transaction risk monitor</p>
-        <div class="shield-item"><div class="sh-icon sh-safe">✓</div><div><p class="sh-main">Online payment · $240</p><p class="sh-sub">Stripe · returning customer</p></div><span class="sh-badge b-safe">Safe</span></div>
-        <div class="shield-item"><div class="sh-icon sh-warn">!</div><div><p class="sh-main">Card payment · $1,890</p><p class="sh-sub">New location · unusual time</p></div><span class="sh-badge b-warn">Review</span></div>
-        <div class="shield-item"><div class="sh-icon sh-risk">✕</div><div><p class="sh-main">Wire transfer · $4,500</p><p class="sh-sub">Flagged IP · velocity spike</p></div><span class="sh-badge b-risk">High risk</span></div>
-        <div style="margin-top:10px;background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:9px 11px;">
-          <p style="font-size:10px;font-weight:500;color:var(--ink);margin-bottom:3px;">AI insight</p>
-          <p style="font-size:10px;color:var(--ink3);line-height:1.55;">Wire transfer pattern matches known fraud ring. Recommend hold pending manual review. Confidence: 94.2%</p>
+        <div class="proj-body-inner">
+          <div class="proj-story">
+            <p>After leading fraud delivery at Bank of America, I saw something troubling: <strong>small businesses face the same fraud threats as enterprises, but none of the same tools.</strong> The gap wasn't technical — it was a product problem nobody was solving.</p>
+            <p>So I solved it. Independently researched, coded, and deployed a cloud-native AI fraud detection platform — personally configuring the full AWS stack: SageMaker ML pipeline, Lambda, Kinesis, API Gateway, DynamoDB, and SNS.</p>
+            <p>Validated against 287 synthetic SMB transactions. <strong>87.5% fraud detection rate. 94ms ML scoring latency.</strong> Published two peer-reviewed articles in IJRISS (2024).</p>
+            <div class="proj-tags">
+              <span class="tag">AI/ML</span><span class="tag">AWS SageMaker</span>
+              <span class="tag">Fintech</span><span class="tag">Risk UX</span><span class="tag">Research</span>
+            </div>
+            <a href="https://adedejiayobami0-ux.github.io/fraudshieldsmb/" target="_blank" class="proj-live-btn rose">View live product ↗</a>
+          </div>
+          <div class="vis-panel">
+            <p class="vis-head">Transaction risk monitor</p>
+            <div class="sh-item"><div class="sh-ico safe">✓</div><div><p class="sh-main">Online payment · $240</p><p class="sh-sub">Stripe · returning customer</p></div><span class="sh-badge safe">Safe</span></div>
+            <div class="sh-item"><div class="sh-ico warn">!</div><div><p class="sh-main">Card payment · $1,890</p><p class="sh-sub">New location · unusual time</p></div><span class="sh-badge warn">Review</span></div>
+            <div class="sh-item"><div class="sh-ico risk">✕</div><div><p class="sh-main">Wire transfer · $4,500</p><p class="sh-sub">Flagged IP · velocity spike</p></div><span class="sh-badge risk">High risk</span></div>
+            <div style="margin-top:10px;background:var(--surface);border:0.5px solid var(--border);border-radius:6px;padding:9px 11px;">
+              <p style="font-size:10px;font-weight:700;color:var(--ink);margin-bottom:3px;">AI insight</p>
+              <p style="font-size:10px;color:var(--ink3);line-height:1.55;">Pattern matches known fraud ring. Recommend hold. Confidence: 94.2%</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Ten. -->
-    <div class="proj-card">
+    <!-- Project 3 -->
+    <div class="proj-card reveal reveal-delay-2" id="p3">
+      <div class="proj-header" onclick="toggleProject('p3')">
+        <div class="proj-header-left">
+          <span class="proj-num">03</span>
+          <div class="proj-title-wrap">
+            <span class="proj-type-pill t-co">Consumer · Media</span>
+            <p class="proj-name">Ten. — Stories for busy people</p>
+            <p class="proj-tagline-text">One story. One lesson. Ten minutes.</p>
+          </div>
+        </div>
+        <div class="proj-stats">
+          <div class="pstat"><span class="pstat-n">247</span><span class="pstat-l">Waitlist</span></div>
+          <div class="pstat"><span class="pstat-n">85%</span><span class="pstat-l">Creator cut</span></div>
+        </div>
+        <div class="proj-toggle">+</div>
+      </div>
       <div class="proj-body">
-        <span class="proj-type t-consumer">Consumer · Media</span>
-        <p class="proj-name">Ten. — Stories for busy people</p>
-        <p class="proj-tagline">One story. One lesson. Ten minutes.</p>
-        <p class="proj-desc">
-          I identified an underserved moment: the idle 10 minutes on a commute, at lunch, before bed. Ten. delivers complete short stories and ideas as text and <strong>auto-generated audio</strong> — removing the "too long, didn't read" barrier entirely. A creator-first model lets writers keep 85% of revenue.
-          <br><br>
-          The job-to-be-done wasn't "read more" — it was <strong>"feel like I used my time well."</strong> That insight shaped every product decision, from the read/listen toggle to the "one piece, done" UX philosophy. <strong>247 people on the waitlist before launch.</strong>
-        </p>
-        <div class="proj-metrics">
-          <div class="metric"><span class="metric-n">247</span><span class="metric-l">Waitlist</span></div>
-          <div class="metric"><span class="metric-n">85%</span><span class="metric-l">Creator cut</span></div>
-          <div class="metric"><span class="metric-n">&lt;10m</span><span class="metric-l">Per piece</span></div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">Consumer product</span><span class="tag">0→1</span>
-          <span class="tag">Jobs-to-be-done</span><span class="tag">Audio UX</span>
-          <span class="tag">Creator economy</span><span class="tag">Monetisation</span>
-        </div>
-        <a href="https://adedejiayobami0-ux.github.io/tenapp/" target="_blank" class="proj-link">View live ↗</a>
-      </div>
-      <div class="proj-visual">
-        <p class="vis-head">Daily picks feed</p>
-        <div class="ten-item"><p class="ten-type">Story</p><p class="ten-title">The Night I Left Lagos</p><p class="ten-meta">by Chidera Okafor · 📖 9m · 🎧 7m</p></div>
-        <div class="ten-item"><p class="ten-type">Learn</p><p class="ten-title">Why You Procrastinate</p><p class="ten-meta">by Dr. Amara Osei · 📖 7m · 🎧 6m</p></div>
-        <div class="ten-item"><p class="ten-type">Story</p><p class="ten-title">I Quit My Tech Job at 30</p><p class="ten-meta">by Sarah Chen · 📖 8m · 🎧 7m</p></div>
-        <div class="waitlist-bar">
-          <span class="wl-txt">247 people on the waitlist</span>
-          <span class="wl-badge">Launching soon ●</span>
+        <div class="proj-body-inner">
+          <div class="proj-story">
+            <p>The insight wasn't "people want to read more." The real job-to-be-done was <strong>"I want to feel like I used my 10 minutes well."</strong> That single reframe changed every product decision.</p>
+            <p>Ten. delivers complete short stories and ideas as text and auto-generated audio. No series. No cliffhangers. Finished before your stop. A creator model where writers keep 85% of revenue — because if creators win, the product wins.</p>
+            <p><strong>247 people on the waitlist before a single line of marketing spend.</strong> Word of mouth only.</p>
+            <div class="proj-tags">
+              <span class="tag">Consumer product</span><span class="tag">0→1</span>
+              <span class="tag">Jobs-to-be-done</span><span class="tag">Audio UX</span><span class="tag">Creator economy</span>
+            </div>
+            <a href="https://adedejiayobami0-ux.github.io/tenapp/" target="_blank" class="proj-live-btn gold">View live product ↗</a>
+          </div>
+          <div class="vis-panel">
+            <p class="vis-head">Daily picks feed</p>
+            <div class="ten-item"><p class="ten-type">Story</p><p class="ten-title">The Night I Left Lagos</p><p class="ten-meta">Chidera Okafor · 📖 9m · 🎧 7m</p></div>
+            <div class="ten-item"><p class="ten-type">Learn</p><p class="ten-title">Why You Procrastinate</p><p class="ten-meta">Dr. Amara Osei · 📖 7m · 🎧 6m</p></div>
+            <div class="ten-item"><p class="ten-type">Story</p><p class="ten-title">I Quit My Tech Job at 30</p><p class="ten-meta">Sarah Chen · 📖 8m · 🎧 7m</p></div>
+            <div style="margin-top:8px;background:var(--surface);border:0.5px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:10px;color:var(--ink3);">247 on the waitlist</span>
+              <span style="font-size:10px;font-weight:700;color:var(--teal);">Launching soon ●</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -611,147 +945,174 @@ footer{
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section class="section" id="experience">
-  <div class="sec-head">
-    <span class="sec-title">Experience</span>
-    <span class="sec-note">7+ years</span>
+<!-- ══ CHAPTER 4: PHILOSOPHY ════════════════════════════ -->
+<div class="ch-divider wrap reveal" id="philosophy">
+  <span class="ch-num">Chapter 03</span>
+  <div class="ch-line"></div>
+  <span class="ch-title">How I think</span>
+</div>
+
+<section class="philosophy">
+  <div class="phil-grid">
+    <div class="phil-card reveal">
+      <div class="phil-icon">🔍</div>
+      <p class="phil-title">Research first,<br>always.</p>
+      <p class="phil-text">I don't start with solutions. I start with questions. Every product decision I make is grounded in understanding what users are actually trying to accomplish — not just what they say they want.</p>
+    </div>
+    <div class="phil-card reveal reveal-delay-1">
+      <div class="phil-icon">⚡</div>
+      <p class="phil-title">Build it myself<br>if I have to.</p>
+      <p class="phil-text">I don't wait for someone else to solve the problem I've spotted. At AWS I built the tool I needed. At BofA I turned domain knowledge into a deployed AI system. PMs who can ship are rare. I'm one of them.</p>
+    </div>
+    <div class="phil-card reveal reveal-delay-2">
+      <div class="phil-icon">🎯</div>
+      <p class="phil-title">Outcomes,<br>not outputs.</p>
+      <p class="phil-text">60% less time wasted on status reports. 87.5% fraud detection. 247 waitlist signups with zero ad spend. I measure my work in impact, not features shipped. The metric that matters is the one that changes someone's day.</p>
+    </div>
   </div>
-  <div class="exp-list">
 
-    <div class="exp-item">
-      <div>
-        <p class="exp-company">Amazon Web Services</p>
-        <p class="exp-role">Launch Program Manager II</p>
-        <p class="exp-desc">Managed the internal launch lifecycle of AWS cloud products and services, coordinating cross-functional teams across engineering, product, legal, and operations. <strong>Identified a critical portfolio visibility gap</strong> and independently designed, built, and deployed an internal program management tool — achieving a <strong>60%+ reduction in weekly status report compilation time</strong> and eliminating manual tracking errors causing missed escalation windows.</p>
-        <span class="exp-award">⭐ AWSome Award × 2 — Peculiar Points (David & Anuj Jauhari)</span>
+  <div class="creds reveal" style="padding:3rem 0 0;">
+    <div class="creds-grid">
+      <div class="cred-item">
+        <div class="cred-icon">🤖</div>
+        <div>
+          <p class="cred-title">Amazon Machine Learning University</p>
+          <p class="cred-sub">ML for Leaders: Generative AI · January 2025</p>
+        </div>
       </div>
-      <div class="exp-date">06/2024 – Present<br>Seattle, WA</div>
-    </div>
-
-    <div class="exp-item">
-      <div>
-        <p class="exp-company">Bank of America</p>
-        <p class="exp-role">IT Program Manager — Fraud & Authentication Delivery Lead</p>
-        <p class="exp-desc">Led technology program delivery for Bank of America's Fraud and Authentication team. Introduced an <strong>agile-hybrid governance model</strong> reducing time-to-decision by 30%. Built deep domain knowledge of enterprise fraud detection systems — transaction monitoring, fraud signal typologies, alert triage, escalation protocols — that became the foundation for FraudShield SMB.</p>
+      <div class="cred-item">
+        <div class="cred-icon">🛡️</div>
+        <div>
+          <p class="cred-title">Cisco Networking Academy</p>
+          <p class="cred-sub">Cybersecurity Administration · Threat Analysis · Network Defense · December 2023</p>
+        </div>
       </div>
-      <div class="exp-date">05/2023 – 05/2024<br>Seattle, WA</div>
-    </div>
-
-    <div class="exp-item">
-      <div>
-        <p class="exp-company">Google Maps</p>
-        <p class="exp-role">Communication Program Manager — Compliance</p>
-        <p class="exp-desc">Streamlined cross-functional operations across global legal, privacy, and product teams, achieving a <strong>25% improvement in project delivery speed</strong> within the first quarter. Established comprehensive policies for measuring product launch success.</p>
+      <div class="cred-item">
+        <div class="cred-icon">📋</div>
+        <div>
+          <p class="cred-title">PMI Active Member</p>
+          <p class="cred-sub">MS Project Management — PMI-registered · Northeastern University 2022</p>
+        </div>
       </div>
-      <div class="exp-date">08/2022 – 04/2023<br>Seattle, WA</div>
-    </div>
-
-    <div class="exp-item">
-      <div>
-        <p class="exp-company">Apple Inc.</p>
-        <p class="exp-role">Marcom R&D Print & Package — Product Manager (Internship)</p>
-        <p class="exp-desc">Applied analytical methodologies to complex R&D problems across print and packaging product development. <strong>Improved yield management efficiency by 30%</strong> within 6 months through optimised resource allocation and data science methodologies.</p>
+      <div class="cred-item">
+        <div class="cred-icon">📄</div>
+        <div>
+          <p class="cred-title">Peer-Reviewed Research · IJRISS 2024</p>
+          <p class="cred-sub">2 published articles on AI-powered fraud prevention deployment for SMBs</p>
+        </div>
       </div>
-      <div class="exp-date">07/2021 – 07/2022<br>Cupertino, CA</div>
     </div>
 
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section class="section" id="skills">
-  <div class="sec-head"><span class="sec-title">Skills & tools</span></div>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <p class="sg-title">Product craft</p>
-      <span class="skill-pill">Product strategy</span>
-      <span class="skill-pill">Roadmapping</span>
-      <span class="skill-pill">PRD writing</span>
-      <span class="skill-pill">OKRs</span>
-      <span class="skill-pill">Go-to-market</span>
-      <span class="skill-pill">Feature prioritisation</span>
-      <span class="skill-pill">Jobs-to-be-done</span>
-    </div>
-    <div class="skill-group">
-      <p class="sg-title">Research & design</p>
-      <span class="skill-pill">User research</span>
-      <span class="skill-pill">UX design</span>
-      <span class="skill-pill">Figma</span>
-      <span class="skill-pill">Usability testing</span>
-      <span class="skill-pill">Prototyping</span>
-      <span class="skill-pill">A/B testing</span>
-      <span class="skill-pill">Graphic design</span>
-    </div>
-    <div class="skill-group">
-      <p class="sg-title">Technical & delivery</p>
-      <span class="skill-pill">AWS SageMaker</span>
-      <span class="skill-pill">Lambda / Kinesis</span>
-      <span class="skill-pill">Agile / Scrum</span>
-      <span class="skill-pill">Workfront</span>
-      <span class="skill-pill">Jira</span>
-      <span class="skill-pill">Fraud detection</span>
-      <span class="skill-pill">ML deployment</span>
-    </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <div class="sec-head"><span class="sec-title">Let's connect</span></div>
-  <div class="contact-row">
-    <a href="mailto:adedejiayobami0@gmail.com" class="c-card">
-      <div class="c-icon">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1" fill="none"/><path d="M1 4.5l7 5 7-5" stroke="currentColor" stroke-width="1"/></svg>
-      </div>
-      <div><p class="c-label">Email</p><p class="c-sub">adedejiayobami0@gmail.com</p></div>
-    </a>
-    <a href="https://linkedin.com/in/ayobami-adedeji-262592176" target="_blank" class="c-card">
-      <div class="c-icon">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" fill="none" stroke="currentColor"/><path d="M4 6.5v5M4 4v.5M6.5 11.5V8.75A2.25 2.25 0 019 6.5a2.5 2.5 0 012.5 2.5v2.5M6.5 6.5v5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
-      </div>
-      <div><p class="c-label">LinkedIn</p><p class="c-sub">ayobami-adedeji-262592176</p></div>
-    </a>
-    <a href="https://github.com/adedejiayobami0-ux" target="_blank" class="c-card">
-      <div class="c-icon">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.34c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.88-1.17-.88-1.17-.72-.49.06-.48.06-.48.8.06 1.22.82 1.22.82.71 1.22 1.87.87 2.32.66.07-.51.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.68 7.68 0 018 3.92c.68 0 1.36.09 2 .26 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.19c0 .21.15.46.55.38C13.71 14.53 16 11.54 16 8c0-4.42-3.58-8-8-8z" fill="currentColor"/></svg>
-      </div>
-      <div><p class="c-label">GitHub</p><p class="c-sub">adedejiayobami0-ux</p></div>
-    </a>
-    <a href="tel:+15092172364" class="c-card">
-      <div class="c-icon">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 3a1 1 0 011-1h2.5a1 1 0 01.97.757l.7 2.8a1 1 0 01-.292.99l-1.06.97a9.014 9.014 0 004.56 4.56l.97-1.06a1 1 0 01.99-.292l2.8.7A1 1 0 0114 12.5V15a1 1 0 01-1 1C6.373 16 0 9.627 0 3a1 1 0 011-1h1z" stroke="currentColor" fill="none" stroke-width="1"/></svg>
-      </div>
-      <div><p class="c-label">Phone</p><p class="c-sub">+1 509-217-2364</p></div>
-    </a>
-  </div>
-  <div class="resume-band">
-    <div class="rb-text">
-      <h3>Resume / CV</h3>
-      <p>7+ years across AWS, Apple, Google & Bank of America — full details on request.</p>
+<!-- ══ CHAPTER 5: CONTACT ════════════════════════════════ -->
+<div class="ch-divider wrap reveal" id="contact">
+  <span class="ch-num">Chapter 04</span>
+  <div class="ch-line"></div>
+  <span class="ch-title">Let's talk</span>
+</div>
+
+<section class="contact-section">
+  <div class="contact-hero reveal">
+    <h2>Got a problem<br>worth <em>solving?</em></h2>
+    <p>I'm open to senior PM roles, consulting conversations, and interesting collaborations. If you're building something that matters, I want to hear about it.</p>
+    <div class="contact-cards">
+      <a href="mailto:adedejiayobami0@gmail.com" class="c-card">
+        <div class="c-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1" fill="none"/><path d="M1 4.5l7 5 7-5" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+        <div><p class="c-label">Email me</p><p class="c-sub">adedejiayobami0@gmail.com</p></div>
+      </a>
+      <a href="https://linkedin.com/in/ayobami-adedeji-262592176" target="_blank" class="c-card">
+        <div class="c-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" fill="none" stroke="currentColor"/><path d="M4 6.5v5M4 4v.5M6.5 11.5V8.75A2.25 2.25 0 019 6.5a2.5 2.5 0 012.5 2.5v2.5M6.5 6.5v5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+        </div>
+        <div><p class="c-label">LinkedIn</p><p class="c-sub">ayobami-adedeji-262592176</p></div>
+      </a>
+      <a href="https://github.com/adedejiayobami0-ux" target="_blank" class="c-card">
+        <div class="c-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.34c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.88-1.17-.88-1.17-.72-.49.06-.48.06-.48.8.06 1.22.82 1.22.82.71 1.22 1.87.87 2.32.66.07-.51.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.68 7.68 0 018 3.92c.68 0 1.36.09 2 .26 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.19c0 .21.15.46.55.38C13.71 14.53 16 11.54 16 8c0-4.42-3.58-8-8-8z" fill="currentColor"/></svg>
+        </div>
+        <div><p class="c-label">GitHub</p><p class="c-sub">adedejiayobami0-ux</p></div>
+      </a>
+      <a href="tel:+15092172364" class="c-card">
+        <div class="c-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 3a1 1 0 011-1h2.5a1 1 0 01.97.757l.7 2.8a1 1 0 01-.292.99l-1.06.97a9.014 9.014 0 004.56 4.56l.97-1.06a1 1 0 01.99-.292l2.8.7A1 1 0 0114 12.5V15a1 1 0 01-1 1C6.373 16 0 9.627 0 3a1 1 0 011-1h1z" stroke="currentColor" fill="none" stroke-width="1"/></svg>
+        </div>
+        <div><p class="c-label">Call me</p><p class="c-sub">+1 509-217-2364</p></div>
+      </a>
     </div>
-    <a href="mailto:adedejiayobami0@gmail.com?subject=Resume Request — Ayobami Adedeji"><button class="btn-fill">Request resume ↗</button></a>
   </div>
 </section>
 
-</main>
-
-<footer>
-  <div class="wrap">
-    Ayobami Adedeji · Product Manager · Seattle, WA · <a href="mailto:adedejiayobami0@gmail.com" style="color:var(--accent);">adedejiayobami0@gmail.com</a>
-  </div>
+<footer class="wrap">
+  <span>Ayobami Adedeji · Product Manager · Seattle, WA</span>
+  <span>Built with intention. Designed for people. <a href="mailto:adedejiayobami0@gmail.com">Say hello →</a></span>
 </footer>
 
 <script>
-  const btn = document.getElementById('themeBtn');
-  const html = document.documentElement;
-  const stored = localStorage.getItem('theme');
-  if(stored) html.setAttribute('data-theme', stored);
-  btn.addEventListener('click', () => {
-    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
+/* ── CURSOR ─────────────────────────────────────── */
+const cur = document.getElementById('cursor');
+const trail = document.getElementById('cursor-trail');
+let mx = -100, my = -100;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cur.style.left = mx + 'px';
+  cur.style.top  = my + 'px';
+  setTimeout(() => {
+    trail.style.left = mx + 'px';
+    trail.style.top  = my + 'px';
+  }, 80);
+});
+document.querySelectorAll('a,button,.proj-header,.phil-card,.c-card,.co-badge').forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('hovering'));
+});
+
+/* ── PROGRESS BAR ───────────────────────────────── */
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  document.documentElement.style.setProperty('--progress', pct + '%');
+  updateChapterDots();
+});
+
+/* ── SCROLL REVEAL ──────────────────────────────── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── CHAPTER DOTS ───────────────────────────────── */
+const sections = ['hero','story','work','philosophy','contact'];
+const dots = document.querySelectorAll('.ch-dot');
+function updateChapterDots() {
+  let current = 0;
+  sections.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if(el && window.scrollY >= el.offsetTop - 200) current = i;
   });
+  dots.forEach((d,i) => d.classList.toggle('active', i === current));
+}
+
+/* ── PROJECT ACCORDION ──────────────────────────── */
+function toggleProject(id) {
+  const card = document.getElementById(id);
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.proj-card').forEach(c => c.classList.remove('open'));
+  if(!isOpen) card.classList.add('open');
+}
+
+/* ── THEME TOGGLE ───────────────────────────────── */
+const html = document.documentElement;
+const themeBtn = document.getElementById('themeBtn');
+const stored = localStorage.getItem('aa-theme');
+if(stored) html.setAttribute('data-theme', stored);
+themeBtn.addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('aa-theme', next);
+});
 </script>
 </body>
 </html>
