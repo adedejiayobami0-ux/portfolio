@@ -806,7 +806,7 @@ footer a { color: var(--gold); }
 <section class="story-section">
   <div class="work-intro reveal">
     <p class="pull-quote">"I saw a gap. I didn't write a ticket — I built the solution."</p>
-    <p>Three products. Three problems I couldn't stop thinking about. Each one built because the existing tools weren't good enough for the people who needed them.</p>
+    <p>Five products. Five problems I couldn't stop thinking about. Each one built because the existing tools weren't good enough for the people who needed them.</p>
   </div>
 
   <div class="proj-stack">
@@ -936,6 +936,123 @@ footer a { color: var(--gold); }
             <div style="margin-top:8px;background:var(--surface);border:0.5px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;">
               <span style="font-size:10px;color:var(--ink3);">247 on the waitlist</span>
               <span style="font-size:10px;font-weight:700;color:var(--teal);">Launching soon ●</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Project 4 -->
+    <div class="proj-card reveal reveal-delay-1" id="p4">
+      <div class="proj-header" onclick="toggleProject('p4')">
+        <div class="proj-header-left">
+          <span class="proj-num">04</span>
+          <div class="proj-title-wrap">
+            <span class="proj-type-pill t-pm">UX Redesign · AI</span>
+            <p class="proj-name">Claude Language & Usage Design</p>
+            <p class="proj-tagline-text">Rethinking how Claude communicates limits and language</p>
+          </div>
+        </div>
+        <div class="proj-stats">
+          <div class="pstat"><span class="pstat-n">5</span><span class="pstat-l">UX flows</span></div>
+          <div class="pstat"><span class="pstat-n">40+</span><span class="pstat-l">Languages</span></div>
+        </div>
+        <div class="proj-toggle">+</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-body-inner">
+          <div class="proj-story">
+            <p>I use Claude every day. And I kept noticing the same friction points: <strong>language switching required re-prompting every single session</strong>, and usage limits appeared as dead ends with no context or escape hatch.</p>
+            <p>So I did what PMs do — I redesigned it. This prototype proposes five distinct UX improvements: a persistent language pill next to the model picker, auto-detect banners that fire when you write in a different language, an always-visible usage meter with three states (healthy, warning, critical), and a hard-limit screen that gives exact resume times and a model-downgrade escape rather than a dead end.</p>
+            <p><strong>The insight:</strong> users don't hate limits — they hate surprises. Transparency and control change everything.</p>
+            <div class="proj-tags">
+              <span class="tag">UX redesign</span><span class="tag">AI product</span>
+              <span class="tag">Internationalisation</span><span class="tag">Usage transparency</span><span class="tag">Prototyping</span>
+            </div>
+            <a href="https://adedejiayobami0-ux.github.io/Claude-language-and-usage-design-idea/" target="_blank" class="proj-live-btn">View live prototype ↗</a>
+          </div>
+          <div class="vis-panel">
+            <p class="vis-head">5 redesigned UX flows</p>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="background:var(--surface);border:0.5px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;align-items:center;gap:8px;">
+                <span style="font-size:14px;">🌐</span>
+                <div><p style="font-size:10px;font-weight:700;color:var(--ink);">F1 — Language onboarding</p><p style="font-size:9px;color:var(--ink3);">Set preference at session start</p></div>
+              </div>
+              <div style="background:var(--surface);border:0.5px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;align-items:center;gap:8px;">
+                <span style="font-size:14px;">💊</span>
+                <div><p style="font-size:10px;font-weight:700;color:var(--ink);">F2 — In-context language pill</p><p style="font-size:9px;color:var(--ink3);">One tap to switch, always visible</p></div>
+              </div>
+              <div style="background:var(--surface);border:0.5px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;align-items:center;gap:8px;">
+                <span style="font-size:14px;">🔍</span>
+                <div><p style="font-size:10px;font-weight:700;color:var(--ink);">F3 — Auto-detect banner</p><p style="font-size:9px;color:var(--ink3);">Fires when you write in another language</p></div>
+              </div>
+              <div style="background:var(--surface);border:0.5px solid var(--teal);border-radius:6px;padding:8px 10px;display:flex;align-items:center;gap:8px;">
+                <span style="font-size:14px;">📊</span>
+                <div><p style="font-size:10px;font-weight:700;color:var(--ink);">F4 — Usage meter (82% left)</p><p style="font-size:9px;color:var(--teal-t);">Always visible · 3 states: healthy / warn / critical</p></div>
+              </div>
+              <div style="background:var(--surface);border:0.5px solid var(--rose);border-radius:6px;padding:8px 10px;display:flex;align-items:center;gap:8px;">
+                <span style="font-size:14px;">⚠️</span>
+                <div><p style="font-size:10px;font-weight:700;color:var(--ink);">F5 — Limit warning + recovery</p><p style="font-size:9px;color:var(--rose-t);">Exact time, escape hatch, work preserved</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="proj-card reveal reveal-delay-2" id="p5">
+      <div class="proj-header" onclick="toggleProject('p5')">
+        <div class="proj-header-left">
+          <span class="proj-num">05</span>
+          <div class="proj-title-wrap">
+            <span class="proj-type-pill t-co">Consumer · Fitness</span>
+            <p class="proj-name">Stride — Fitness Tracker for Runners</p>
+            <p class="proj-tagline-text">Dashboard, run tracking, workout logging & training plans</p>
+          </div>
+        </div>
+        <div class="proj-stats">
+          <div class="pstat"><span class="pstat-n">5</span><span class="pstat-l">Core screens</span></div>
+          <div class="pstat"><span class="pstat-n">0</span><span class="pstat-l">Dependencies</span></div>
+        </div>
+        <div class="proj-toggle">+</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-body-inner">
+          <div class="proj-story">
+            <p>Runners and gym-goers needed a single app that didn't force them to choose between tracking runs or logging workouts. <strong>Stride unifies both in one clean, fast experience</strong> — no install, no build step, just open and go.</p>
+            <p>The product covers the full training loop: a weekly stats dashboard with streak tracking, route visualisation with pace and split analysis, a live workout logger with set/rep checkoff, a training calendar showing planned vs actual volume, and a progress screen tracking PRs and 5K trends over time.</p>
+            <p><strong>Built as a single HTML file with zero dependencies</strong> — a deliberate constraint that forced every design and engineering decision to be intentional. Roadmap includes GPS tracking, AI-powered plan generation, and Strava sync.</p>
+            <div class="proj-tags">
+              <span class="tag">Consumer product</span><span class="tag">Fitness</span>
+              <span class="tag">Data visualisation</span><span class="tag">Prototyping</span><span class="tag">0 dependencies</span>
+            </div>
+            <a href="https://adedejiayobami0-ux.github.io/app-for-runners-demo/" target="_blank" class="proj-live-btn gold">View live prototype ↗</a>
+          </div>
+          <div class="vis-panel">
+            <p class="vis-head">App screens</p>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="background:var(--surface);border:0.5px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:14px;">📊</span><p style="font-size:10px;font-weight:700;color:var(--ink);">Dashboard</p></div>
+                <p style="font-size:9px;color:var(--ink3);">Weekly stats · streak · activity feed</p>
+              </div>
+              <div style="background:var(--surface);border:0.5px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:14px;">🏃</span><p style="font-size:10px;font-weight:700;color:var(--ink);">Run tracking</p></div>
+                <p style="font-size:9px;color:var(--ink3);">Route · pace charts · split analysis</p>
+              </div>
+              <div style="background:var(--surface);border:0.5px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:14px;">💪</span><p style="font-size:10px;font-weight:700;color:var(--ink);">Workout logger</p></div>
+                <p style="font-size:9px;color:var(--ink3);">Live set/rep entry · editable weights</p>
+              </div>
+              <div style="background:var(--surface);border:0.5px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:14px;">📅</span><p style="font-size:10px;font-weight:700;color:var(--ink);">Training plan</p></div>
+                <p style="font-size:9px;color:var(--ink3);">Planned vs actual volume · weekly calendar</p>
+              </div>
+              <div style="background:var(--surface);border:0.5px solid var(--teal);border-radius:6px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:14px;">🏆</span><p style="font-size:10px;font-weight:700;color:var(--ink);">Progress</p></div>
+                <p style="font-size:9px;color:var(--teal-t);">PR tracking · 5K trend · volume over time</p>
+              </div>
             </div>
           </div>
         </div>
